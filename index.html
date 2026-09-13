@@ -3,30 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#070707">
+<meta name="description" content="FENRIX DEVELOPMENT — Building Ideas. Developing Futures.">
 <title>FENRIX DEVELOPMENT | Building Ideas. Developing Futures.</title>
 
-<meta name="description"
-content="FENRIX DEVELOPMENT — Independent Development Group building brands, businesses and long-term opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-
 :root{
-  --black:#080808;
-  --black2:#101010;
-  --white:#f4f1e9;
-  --muted:#8b8983;
-  --line:#272522;
-  --gold:#d9b45b;
-  --gold2:#f4dc91;
-  --gold3:#9d762b;
+  --bg:#070707;
+  --bg2:#0c0c0c;
+  --text:#f4f0e8;
+  --muted:#9a9790;
+  --line:rgba(255,255,255,.11);
+  --gold:#c9a35b;
+  --gold2:#f0d18a;
+  --gold3:#80612b;
+  --max:1440px;
 }
 
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
 }
 
 html{
@@ -34,8 +35,8 @@ html{
 }
 
 body{
-  background:var(--black);
-  color:var(--white);
+  background:var(--bg);
+  color:var(--text);
   font-family:"DM Sans",sans-serif;
   overflow-x:hidden;
 }
@@ -45,263 +46,360 @@ body:before{
   position:fixed;
   inset:0;
   pointer-events:none;
-  opacity:.045;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  z-index:20;
+  z-index:50;
+  opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
 }
 
-/* GOLD */
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+.container{
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;
+}
 
 .gold{
+  color:var(--gold2);
+}
+
+.metal{
   background:linear-gradient(
     105deg,
-    #80601d 0%,
-    #d7b45a 22%,
-    #fff0a9 42%,
-    #c79d43 60%,
-    #f1d57d 76%,
-    #8d6922 100%
+    #71521f 0%,
+    #d6b56c 18%,
+    #fff0ae 34%,
+    #ad823c 52%,
+    #f1d58d 72%,
+    #765421 100%
   );
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
 }
 
-.logo-mark{
-  width:46px;
-  height:46px;
-  border:1px solid rgba(226,191,96,.75);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  background:linear-gradient(145deg,#17140d,#080808);
-  box-shadow:
-    inset 0 0 20px rgba(226,191,96,.08),
-    0 0 25px rgba(211,171,70,.08);
-}
-
-.logo-mark span{
-  font-family:Manrope,sans-serif;
-  font-size:27px;
-  font-weight:800;
-  background:linear-gradient(
-    135deg,
-    #8e6820,
-    #f7df8b,
-    #b88b31,
-    #fff0a4,
-    #8a641e
-  );
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
 /* NAV */
 
-nav{
+.nav{
   position:fixed;
   top:0;
   left:0;
   right:0;
-  height:82px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 6vw;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  background:rgba(8,8,8,.82);
-  backdrop-filter:blur(18px);
   z-index:100;
+  height:78px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(7,7,7,.72);
+  backdrop-filter:blur(18px);
 }
 
-.brand{
+.nav-inner{
+  height:100%;
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;
   display:flex;
   align-items:center;
-  gap:13px;
-  text-decoration:none;
-  color:white;
+  justify-content:space-between;
 }
 
-.brand strong{
+.logo{
+  width:42px;
+  height:42px;
+  border:1px solid rgba(201,163,91,.75);
+  display:grid;
+  place-items:center;
   font-family:Manrope,sans-serif;
-  font-size:15px;
-  letter-spacing:3px;
+  font-weight:800;
+  font-size:21px;
+  position:relative;
+  overflow:hidden;
 }
 
-.navlinks{
+.logo:after{
+  content:"";
+  position:absolute;
+  inset:-60%;
+  background:linear-gradient(
+    120deg,
+    transparent 35%,
+    rgba(255,240,180,.7) 50%,
+    transparent 65%
+  );
+  animation:shine 5s infinite;
+}
+
+.logo span{
+  position:relative;
+  z-index:2;
+}
+
+.nav-links{
   display:flex;
-  gap:34px;
+  gap:30px;
+  align-items:center;
 }
 
-.navlinks a{
-  color:#aaa7a0;
-  text-decoration:none;
+.nav-links a{
   font-size:11px;
-  letter-spacing:2px;
+  letter-spacing:.18em;
   text-transform:uppercase;
+  color:#aaa69d;
   transition:.3s;
 }
 
-.navlinks a:hover{
+.nav-links a:hover{
   color:var(--gold2);
+}
+
+.nav-contact{
+  border:1px solid rgba(201,163,91,.45);
+  padding:12px 16px;
+  color:var(--gold2)!important;
 }
 
 /* HERO */
 
 .hero{
   min-height:100vh;
-  padding:170px 7vw 90px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
   position:relative;
+  display:flex;
+  align-items:flex-end;
   overflow:hidden;
+  padding:150px 0 70px;
+  background:
+    radial-gradient(circle at 72% 36%,rgba(201,163,91,.13),transparent 25%),
+    radial-gradient(circle at 20% 80%,rgba(255,255,255,.025),transparent 30%),
+    var(--bg);
 }
 
-.hero:after{
+.hero:before{
   content:"";
   position:absolute;
-  width:650px;
-  height:650px;
-  right:-180px;
-  top:80px;
-  background:radial-gradient(
-    circle,
-    rgba(209,164,61,.17),
-    rgba(209,164,61,.04) 38%,
-    transparent 70%
-  );
-  filter:blur(20px);
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:90px 90px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
 
-.kicker{
-  color:#a59e8d;
-  letter-spacing:4px;
-  font-size:11px;
+.hero-glow{
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-120px;
+  top:100px;
+  border-radius:50%;
+  background:rgba(201,163,91,.10);
+  filter:blur(100px);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;
+}
+
+.eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:.24em;
   text-transform:uppercase;
-  margin-bottom:30px;
+  margin-bottom:28px;
+}
+
+.eyebrow:before{
+  content:"";
+  width:38px;
+  height:1px;
+  background:var(--gold);
 }
 
 .hero h1{
+  max-width:1050px;
   font-family:Manrope,sans-serif;
-  font-weight:800;
-  font-size:clamp(58px,10vw,150px);
-  line-height:.86;
-  letter-spacing:-7px;
-  max-width:1100px;
-  position:relative;
-  z-index:2;
+  font-size:clamp(52px,9vw,132px);
+  line-height:.88;
+  letter-spacing:-.075em;
+  font-weight:700;
+  text-transform:uppercase;
 }
 
 .hero h1 span{
   display:block;
 }
 
-.hero-copy{
-  max-width:580px;
-  margin-top:45px;
-  color:#aaa69e;
-  font-size:16px;
+.hero h1 .outline{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(244,240,232,.5);
+}
+
+.hero-bottom{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:end;
+}
+
+.hero-description{
+  max-width:570px;
+  color:var(--muted);
   line-height:1.8;
-  position:relative;
-  z-index:2;
+  font-size:14px;
 }
 
-.hero-meta{
-  display:flex;
-  gap:50px;
-  margin-top:70px;
+.hero-index{
+  text-align:right;
+  color:#6f6c65;
   font-size:10px;
-  letter-spacing:2px;
-  color:#77736c;
-  position:relative;
-  z-index:2;
+  letter-spacing:.18em;
+  line-height:2;
 }
 
-.hero-meta b{
-  display:block;
-  color:#ddd8cc;
-  margin-bottom:8px;
+/* MARQUEE */
+
+.marquee{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-flex;
+  gap:42px;
+  padding:18px 0;
+  animation:marquee 24s linear infinite;
+}
+
+.marquee span{
+  font-family:Manrope,sans-serif;
   font-size:11px;
+  letter-spacing:.24em;
+  color:#77736b;
 }
 
-/* COMMON */
+.marquee .dot{
+  color:var(--gold);
+}
+
+/* GENERAL */
 
 section{
-  padding:130px 7vw;
-  border-top:1px solid var(--line);
+  position:relative;
+}
+
+.section{
+  padding:145px 0;
 }
 
 .section-label{
   font-size:10px;
-  letter-spacing:3px;
-  color:#77736c;
+  letter-spacing:.24em;
   text-transform:uppercase;
-  margin-bottom:30px;
+  color:var(--gold2);
+  margin-bottom:25px;
 }
 
 .section-title{
   font-family:Manrope,sans-serif;
-  font-size:clamp(42px,6vw,88px);
+  font-size:clamp(38px,6vw,82px);
   line-height:.95;
-  letter-spacing:-4px;
-  font-weight:800;
+  letter-spacing:-.055em;
+  text-transform:uppercase;
+  max-width:900px;
+}
+
+.section-copy{
+  color:var(--muted);
+  line-height:1.85;
+  max-width:650px;
+  font-size:14px;
 }
 
 /* ABOUT */
 
 .about-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:100px;
+  grid-template-columns:1.2fr .8fr;
+  gap:90px;
 }
 
-.about-text{
-  color:#96928a;
-  line-height:1.9;
-  font-size:17px;
-  max-width:600px;
+.about-right{
+  padding-top:100px;
 }
 
-.about-text strong{
-  color:#eee9de;
+.about-line{
+  border-top:1px solid var(--line);
+  padding:20px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#aaa69d;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.about-line strong{
+  color:var(--gold2);
+  font-weight:500;
 }
 
 /* ECOSYSTEM */
 
-.eco{
-  margin-top:70px;
+.ecosystem{
+  background:#0a0a0a;
+}
+
+.eco-list{
+  margin-top:75px;
+  border-top:1px solid var(--line);
 }
 
 .eco-row{
   display:grid;
-  grid-template-columns:100px 1fr 1fr;
-  padding:30px 0;
-  border-top:1px solid var(--line);
+  grid-template-columns:100px 1fr 1.2fr;
+  gap:35px;
   align-items:center;
+  padding:32px 0;
+  border-bottom:1px solid var(--line);
+  transition:.35s;
 }
 
-.eco-row:last-child{
-  border-bottom:1px solid var(--line);
+.eco-row:hover{
+  padding-left:18px;
+  background:linear-gradient(90deg,rgba(201,163,91,.05),transparent);
 }
 
 .eco-num{
-  color:#746f65;
-  font-size:12px;
-  letter-spacing:2px;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:.15em;
 }
 
 .eco-name{
   font-family:Manrope,sans-serif;
-  font-size:31px;
-  font-weight:700;
+  font-size:clamp(25px,3vw,42px);
+  text-transform:uppercase;
+  letter-spacing:-.04em;
 }
 
 .eco-desc{
-  color:#77736d;
-  font-size:14px;
-  line-height:1.6;
+  color:#77746e;
+  font-size:13px;
+  line-height:1.7;
 }
 
 /* PROJECT */
@@ -310,375 +408,374 @@ section{
   display:flex;
   justify-content:space-between;
   align-items:flex-end;
-  margin-bottom:55px;
+  gap:40px;
+  margin-bottom:60px;
 }
 
-.project-number{
-  font-size:11px;
-  letter-spacing:3px;
-  color:#77736c;
+.project-meta{
+  text-align:right;
+  color:#79756d;
+  font-size:10px;
+  line-height:2;
+  letter-spacing:.14em;
+  text-transform:uppercase;
 }
 
-.project-number b{
-  color:#d8bd75;
+.project-meta strong{
+  color:var(--gold2);
+  font-weight:500;
 }
 
 .project-visual{
-  min-height:520px;
-  border:1px solid #302b22;
-  background:
-    radial-gradient(circle at 75% 30%,rgba(214,173,72,.13),transparent 30%),
-    linear-gradient(135deg,#11100e,#070707);
-  position:relative;
+  border:1px solid rgba(201,163,91,.28);
+  background:#050505;
   overflow:hidden;
-}
-
-/* STORE ILLUSTRATION */
-
-.store{
-  position:absolute;
-  left:8%;
-  right:8%;
-  bottom:55px;
-  height:350px;
-  border:2px solid #6e572b;
-  background:#10100e;
-  box-shadow:0 25px 70px rgba(0,0,0,.7);
-}
-
-.store-roof{
-  position:absolute;
-  left:-18px;
-  right:-18px;
-  top:-30px;
-  height:30px;
-  border:2px solid #8b6a2d;
-  background:#080808;
-}
-
-.store-sign{
-  position:absolute;
-  left:7%;
-  right:7%;
-  top:28px;
-  height:78px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border:1px solid #725927;
-  background:#090909;
-  box-shadow:0 0 35px rgba(210,167,61,.1);
-}
-
-.store-sign span{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(20px,4vw,40px);
-  letter-spacing:7px;
-  font-weight:800;
-  background:linear-gradient(
-    110deg,
-    #805d1c,
-    #e9c86d,
-    #fff0a3,
-    #a97c29,
-    #e7c66a
-  );
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.store-front{
-  position:absolute;
-  top:135px;
-  bottom:0;
-  left:6%;
-  right:6%;
-  display:grid;
-  grid-template-columns:1fr 1.6fr 1fr;
-  gap:8px;
-}
-
-.window{
-  border:1px solid #3b3325;
-  background:
-    linear-gradient(130deg,rgba(255,255,255,.04),transparent),
-    #0b0b0a;
   position:relative;
 }
 
-.window:after{
+.project-visual:before{
   content:"";
   position:absolute;
-  left:15%;
-  right:15%;
-  bottom:14%;
-  height:1px;
-  background:#705623;
-  box-shadow:0 -12px 0 rgba(112,86,35,.45);
+  inset:0;
+  background:linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255,255,255,.025) 45%,
+    transparent 70%
+  );
+  pointer-events:none;
 }
 
-.door{
-  border:1px solid #4b3b22;
-  background:#090909;
-  position:relative;
+.project-svg{
+  width:100%;
+  display:block;
 }
 
-.door:after{
-  content:"OPEN";
-  position:absolute;
-  top:15px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:8px;
-  letter-spacing:3px;
-  color:#c8a653;
-}
-
-.project-caption{
+.project-info{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px;
-  margin-top:40px;
+  gap:80px;
+  margin-top:55px;
 }
 
-.project-caption h3{
+.project-info h3{
   font-family:Manrope,sans-serif;
-  font-size:45px;
-  letter-spacing:-2px;
+  font-size:clamp(28px,4vw,52px);
+  text-transform:uppercase;
+  letter-spacing:-.045em;
 }
 
-.project-caption p{
-  color:#8d8981;
-  line-height:1.8;
-  max-width:500px;
+.project-info p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.85;
+}
+
+.project-details{
+  margin-top:35px;
+  border-top:1px solid var(--line);
+}
+
+.detail{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+
+.detail span:first-child{
+  color:#68655f;
+}
+
+.detail span:last-child{
+  color:#d6d0c4;
 }
 
 /* STRATEGY */
 
 .strategy{
+  background:#0a0a0a;
+}
+
+.strategy-grid{
+  margin-top:75px;
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  margin-top:80px;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
 }
 
 .strategy-card{
-  min-height:270px;
-  padding:35px;
-  border-top:1px solid #35312a;
-  border-right:1px solid #272521;
+  min-height:330px;
+  padding:32px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.35s;
 }
 
-.strategy-card:last-child{
-  border-right:0;
+.strategy-card:hover{
+  background:rgba(201,163,91,.035);
 }
 
-.strategy-card span{
-  color:#77736b;
+.strategy-card .num{
+  color:var(--gold);
   font-size:10px;
-  letter-spacing:3px;
+  letter-spacing:.2em;
 }
 
 .strategy-card h3{
-  margin-top:55px;
   font-family:Manrope,sans-serif;
-  font-size:42px;
+  font-size:34px;
+  text-transform:uppercase;
+  letter-spacing:-.04em;
 }
 
 .strategy-card p{
-  color:#77736b;
+  color:#77746e;
+  font-size:13px;
   line-height:1.7;
-  margin-top:18px;
 }
 
 /* FOUNDER */
 
-.founder{
-  background:#0b0b0a;
-}
-
 .founder-grid{
   display:grid;
-  grid-template-columns:.8fr 1.2fr;
+  grid-template-columns:.75fr 1.25fr;
   gap:100px;
   align-items:center;
 }
 
-.founder-logo{
-  width:260px;
-  height:260px;
-  margin:auto;
-  border:1px solid #725a2c;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.founder-mark{
+  aspect-ratio:1;
+  border:1px solid rgba(201,163,91,.3);
+  display:grid;
+  place-items:center;
+  position:relative;
   background:
-    radial-gradient(circle,rgba(214,172,66,.1),transparent 60%),
-    #080808;
-  box-shadow:
-    0 0 80px rgba(210,166,55,.08),
-    inset 0 0 60px rgba(210,166,55,.05);
+    radial-gradient(circle,rgba(201,163,91,.12),transparent 55%),
+    #090909;
 }
 
-.founder-logo .f{
+.founder-mark:before,
+.founder-mark:after{
+  content:"";
+  position:absolute;
+  inset:13%;
+  border:1px solid rgba(201,163,91,.14);
+}
+
+.founder-mark:after{
+  inset:25%;
+}
+
+.big-f{
   font-family:Manrope,sans-serif;
-  font-size:150px;
+  font-size:clamp(130px,18vw,260px);
+  line-height:1;
   font-weight:800;
-  background:linear-gradient(
-    135deg,
-    #785617,
-    #f5dc87,
-    #b78930,
-    #fff0a2,
-    #89631d
-  );
-  -webkit-background-clip:text;
-  color:transparent;
+}
+
+.founder-role{
+  margin-top:22px;
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
 }
 
 .founder-name{
   font-family:Manrope,sans-serif;
-  font-size:clamp(40px,6vw,80px);
-  font-weight:800;
-  letter-spacing:-4px;
-}
-
-.founder-role{
-  margin-top:10px;
-  color:#c6a653;
-  letter-spacing:3px;
-  font-size:11px;
+  font-size:clamp(48px,7vw,96px);
+  line-height:.95;
+  letter-spacing:-.06em;
   text-transform:uppercase;
+  margin-bottom:35px;
 }
 
 .founder-quote{
-  margin-top:35px;
-  color:#a29d94;
-  font-size:20px;
-  line-height:1.8;
-  max-width:720px;
+  border-left:2px solid var(--gold);
+  padding-left:25px;
+  font-family:Manrope,sans-serif;
+  font-size:clamp(20px,2.4vw,31px);
+  line-height:1.35;
+  color:#ddd7cb;
+  margin-bottom:35px;
 }
 
 .founder-text{
-  margin-top:25px;
-  color:#77736d;
-  line-height:1.8;
-  max-width:680px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  max-width:650px;
 }
 
 /* VISION */
 
 .vision{
+  min-height:75vh;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at center,rgba(201,163,91,.08),transparent 38%),
+    #080808;
   text-align:center;
-  padding-top:170px;
-  padding-bottom:170px;
+}
+
+.vision .container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .vision h2{
   font-family:Manrope,sans-serif;
-  font-size:clamp(45px,8vw,115px);
-  line-height:.9;
-  letter-spacing:-6px;
+  font-size:clamp(50px,10vw,145px);
+  line-height:.86;
+  letter-spacing:-.075em;
+  text-transform:uppercase;
+}
+
+.vision h2 span{
+  display:block;
+}
+
+.vision-sub{
+  max-width:580px;
+  margin-top:45px;
+  color:#77746e;
+  line-height:1.8;
+  font-size:14px;
 }
 
 /* CONTACT */
 
 .contact{
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  background:
-    radial-gradient(circle at 50% 100%,rgba(213,170,62,.1),transparent 45%),
-    #090909;
+  border-top:1px solid var(--line);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
 }
 
 .contact-title{
   font-family:Manrope,sans-serif;
-  font-size:clamp(55px,9vw,135px);
-  line-height:.85;
-  letter-spacing:-7px;
+  font-size:clamp(50px,8vw,110px);
+  line-height:.88;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
 }
 
-.contact-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  margin-top:70px;
-  max-width:850px;
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
 }
 
 .contact-item{
-  padding:25px 0;
-  border-top:1px solid #302d27;
-}
-
-.contact-item small{
-  display:block;
-  color:#68645d;
-  letter-spacing:3px;
-  font-size:9px;
-  margin-bottom:12px;
-}
-
-.contact-item a{
-  color:#eee9dd;
-  text-decoration:none;
-  font-size:18px;
-}
-
-.contact-item a:hover{
-  color:#e0bc61;
-}
-
-footer{
-  border-top:1px solid #292722;
-  padding:35px 7vw;
+  border-top:1px solid var(--line);
+  padding:22px 0;
   display:flex;
   justify-content:space-between;
-  color:#57544f;
-  font-size:9px;
-  letter-spacing:2px;
+  gap:20px;
+  color:#8c8880;
+  font-size:12px;
+  transition:.3s;
 }
 
-/* MOBILE */
+.contact-item:hover{
+  color:var(--gold2);
+}
 
-@media(max-width:800px){
+.contact-item strong{
+  color:#e5dfd4;
+  font-weight:500;
+}
 
-  nav{
-    height:70px;
-    padding:0 5vw;
-  }
+/* FOOTER */
 
-  .navlinks{
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0;
+}
+
+.footer-inner{
+  width:min(calc(100% - 48px),var(--max));
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#5f5c57;
+  font-size:9px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+/* ANIMATION */
+
+@keyframes shine{
+  0%,70%,100%{transform:translateX(-80%) rotate(25deg)}
+  85%{transform:translateX(80%) rotate(25deg)}
+}
+
+@keyframes marquee{
+  to{transform:translateX(-50%)}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .nav-links{
     display:none;
   }
 
+  .container,
+  .nav-inner,
+  .hero-content,
+  .footer-inner{
+    width:min(calc(100% - 30px),var(--max));
+  }
+
   .hero{
-    padding:140px 6vw 70px;
+    padding-top:130px;
+    padding-bottom:50px;
   }
 
   .hero h1{
-    font-size:16vw;
-    letter-spacing:-4px;
+    font-size:clamp(49px,15vw,90px);
   }
 
-  .hero-meta{
+  .hero-bottom{
+    grid-template-columns:1fr;
     gap:25px;
-    flex-wrap:wrap;
   }
 
-  section{
-    padding:90px 6vw;
+  .hero-index{
+    text-align:left;
+  }
+
+  .section{
+    padding:90px 0;
   }
 
   .about-grid,
-  .founder-grid{
+  .founder-grid,
+  .contact-grid,
+  .project-info{
     grid-template-columns:1fr;
     gap:50px;
   }
 
-  .section-title{
-    letter-spacing:-2px;
+  .about-right{
+    padding-top:0;
   }
 
   .eco-row{
@@ -691,69 +788,68 @@ footer{
   }
 
   .project-head{
-    display:block;
+    align-items:flex-start;
+    flex-direction:column;
   }
 
-  .project-number{
-    margin-top:20px;
+  .project-meta{
+    text-align:left;
   }
 
-  .project-visual{
-    min-height:350px;
-  }
-
-  .store{
-    left:5%;
-    right:5%;
-    bottom:35px;
-    height:250px;
-  }
-
-  .store-sign{
-    height:55px;
-  }
-
-  .store-front{
-    top:100px;
-  }
-
-  .project-caption{
-    grid-template-columns:1fr;
-    gap:25px;
-  }
-
-  .strategy{
+  .strategy-grid{
     grid-template-columns:1fr;
   }
 
   .strategy-card{
-    border-right:0;
+    min-height:250px;
   }
 
-  .founder-logo{
-    width:210px;
-    height:210px;
+  .founder-mark{
+    max-width:520px;
   }
 
-  .founder-logo .f{
-    font-size:120px;
+  .contact-links{
+    margin-top:20px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:520px){
+
+  .nav{
+    height:68px;
+  }
+
+  .logo{
+    width:38px;
+    height:38px;
+  }
+
+  .hero{
+    min-height:92vh;
+  }
+
+  .hero h1{
+    font-size:14vw;
+  }
+
+  .section-title{
+    font-size:42px;
+  }
+
+  .project-info h3{
+    font-size:38px;
   }
 
   .founder-name{
-    letter-spacing:-2px;
+    font-size:47px;
   }
 
-  .contact-box{
-    grid-template-columns:1fr;
-  }
-
-  .contact-title{
-    letter-spacing:-4px;
-  }
-
-  footer{
-    flex-direction:column;
-    gap:15px;
+  .vision h2{
+    font-size:18vw;
   }
 }
 </style>
@@ -761,297 +857,617 @@ footer{
 
 <body>
 
-<nav>
-  <a href="#top" class="brand">
-    <div class="logo-mark"><span>F</span></div>
-    <strong>FENRIX DEVELOPMENT</strong>
-  </a>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="metal">F</span>
+    </a>
 
-  <div class="navlinks">
-    <a href="#about">About</a>
-    <a href="#ecosystem">Ecosystem</a>
-    <a href="#projects">Projects</a>
-    <a href="#founder">Founder</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#projects">Projects</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact" class="nav-contact">Contact ↗</a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
 
-<main id="top">
+  <div class="hero-content">
 
-<section class="hero">
-
-  <div class="kicker">Independent Development Group</div>
-
-  <h1>
-    <span>BUILDING</span>
-    <span class="gold">IDEAS.</span>
-    <span>DEVELOPING</span>
-    <span class="gold">FUTURES.</span>
-  </h1>
-
-  <p class="hero-copy">
-    FENRIX DEVELOPMENT is an independent development group
-    focused on building brands, businesses and long-term
-    opportunities from Vietnam with a global direction.
-  </p>
-
-  <div class="hero-meta">
-    <div>
-      <b>EST. 2026</b>
-      VIETNAM
+    <div class="eyebrow">
+      Independent Development Group
     </div>
 
-    <div>
-      <b>VISION</b>
-      GLOBAL DIRECTION
+    <h1>
+      <span>Building</span>
+      <span class="outline">Ideas.</span>
+      <span>Developing</span>
+      <span class="metal">Futures.</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-description">
+        FENRIX DEVELOPMENT is an independent development group focused on
+        building brands, businesses and long-term opportunities from Vietnam
+        with a global direction.
+      </p>
+
+      <div class="hero-index">
+        EST. 2026<br>
+        VIETNAM<br>
+        GLOBAL DIRECTION
+      </div>
     </div>
 
-    <div>
-      <b>FOCUS</b>
-      BUILD / DEVELOP / EXPAND
-    </div>
   </div>
+</header>
 
-</section>
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>BUILD</span><span class="dot">●</span>
+    <span>DEVELOP</span><span class="dot">●</span>
+    <span>EXPAND</span><span class="dot">●</span>
+    <span>CREATE</span><span class="dot">●</span>
+    <span>INVEST</span><span class="dot">●</span>
+    <span>BUILD</span><span class="dot">●</span>
+    <span>DEVELOP</span><span class="dot">●</span>
+    <span>EXPAND</span><span class="dot">●</span>
+    <span>CREATE</span><span class="dot">●</span>
+    <span>INVEST</span><span class="dot">●</span>
+  </div>
+</div>
 
 <!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
 
-<section id="about">
+    <div class="about-grid">
 
-  <div class="section-label">01 / About FENRIX</div>
+      <div>
+        <div class="section-label">01 / About</div>
 
-  <div class="about-grid">
+        <h2 class="section-title">
+          From one idea<br>
+          to an ecosystem.
+        </h2>
+      </div>
 
-    <h2 class="section-title">
-      FROM ONE IDEA<br>
-      TO AN <span class="gold">ECOSYSTEM.</span>
-    </h2>
+      <div class="about-right">
 
-    <div class="about-text">
-      <p>
-        FENRIX DEVELOPMENT is built around one simple belief:
-        <strong>great businesses should become systems, not isolated ideas.</strong>
-      </p>
+        <p class="section-copy">
+          FENRIX DEVELOPMENT was created with a simple ambition:
+          build businesses with identity, develop them with discipline,
+          and create systems that can grow beyond a single location.
+        </p>
 
-      <br>
+        <div style="height:55px"></div>
 
-      <p>
-        We develop concepts, brands and opportunities across
-        hospitality, creative, digital and investment.
-      </p>
+        <div class="about-line">
+          <span>Foundation</span>
+          <strong>Vietnam</strong>
+        </div>
 
-      <br>
+        <div class="about-line">
+          <span>Direction</span>
+          <strong>Global</strong>
+        </div>
 
-      <p>
-        Starting from Vietnam, FENRIX aims to create businesses
-        with identity, scalability and long-term value.
-      </p>
+        <div class="about-line">
+          <span>Focus</span>
+          <strong>Long Term</strong>
+        </div>
+
+      </div>
     </div>
 
   </div>
 </section>
 
 <!-- ECOSYSTEM -->
+<section class="section ecosystem" id="ecosystem">
+  <div class="container">
 
-<section id="ecosystem">
+    <div class="section-label">02 / Ecosystem</div>
 
-  <div class="section-label">02 / Ecosystem</div>
+    <h2 class="section-title">
+      Four directions.<br>
+      One system.
+    </h2>
 
-  <h2 class="section-title">
-    FOUR DIRECTIONS.<br>
-    <span class="gold">ONE SYSTEM.</span>
-  </h2>
+    <div class="eco-list">
 
-  <div class="eco">
-
-    <div class="eco-row">
-      <div class="eco-num">01</div>
-      <div class="eco-name">Hospitality</div>
-      <div class="eco-desc">
-        Restaurant, food, beverage, hospitality concepts
-        and scalable consumer brands.
+      <div class="eco-row">
+        <div class="eco-num">01</div>
+        <div class="eco-name">Hospitality</div>
+        <div class="eco-desc">
+          Restaurant, food, beverage and hospitality concepts
+          designed around identity and scalable operations.
+        </div>
       </div>
-    </div>
 
-    <div class="eco-row">
-      <div class="eco-num">02</div>
-      <div class="eco-name">Creative</div>
-      <div class="eco-desc">
-        Brand identity, visual systems, concepts,
-        storytelling and experiences.
+      <div class="eco-row">
+        <div class="eco-num">02</div>
+        <div class="eco-name">Creative</div>
+        <div class="eco-desc">
+          Brand identity, visual direction and creative systems
+          that turn concepts into recognizable businesses.
+        </div>
       </div>
-    </div>
 
-    <div class="eco-row">
-      <div class="eco-num">03</div>
-      <div class="eco-name">Digital</div>
-      <div class="eco-desc">
-        Digital products, platforms, technology and
-        new-generation business models.
+      <div class="eco-row">
+        <div class="eco-num">03</div>
+        <div class="eco-name">Digital</div>
+        <div class="eco-desc">
+          Digital products, platforms and infrastructure
+          connecting brands with new opportunities.
+        </div>
       </div>
-    </div>
 
-    <div class="eco-row">
-      <div class="eco-num">04</div>
-      <div class="eco-name">Investment</div>
-      <div class="eco-desc">
-        Capital, strategic partnerships and long-term
-        business development.
+      <div class="eco-row">
+        <div class="eco-num">04</div>
+        <div class="eco-name">Investment</div>
+        <div class="eco-desc">
+          Capital, partnerships and strategic development
+          for businesses with long-term potential.
+        </div>
       </div>
+
     </div>
 
   </div>
 </section>
 
 <!-- PROJECT -->
+<section class="section" id="projects">
+  <div class="container">
 
-<section id="projects">
+    <div class="project-head">
 
-  <div class="section-label">03 / Active Development</div>
+      <div>
+        <div class="section-label">03 / Active Development</div>
 
-  <div class="project-head">
-    <h2 class="section-title">
-      PROJECT <span class="gold">001</span>
-    </h2>
-
-    <div class="project-number">
-      FENRIX PROJECT / 001<br>
-      <b>IN DEVELOPMENT</b>
-    </div>
-  </div>
-
-  <div class="project-visual">
-
-    <div class="store">
-
-      <div class="store-roof"></div>
-
-      <div class="store-sign">
-        <span>BÚN MỌC TÂY HỒ</span>
+        <h2 class="section-title">
+          Project / 001
+        </h2>
       </div>
 
-      <div class="store-front">
-
-        <div class="window"></div>
-
-        <div class="door"></div>
-
-        <div class="window"></div>
-
+      <div class="project-meta">
+        <strong>IN DEVELOPMENT</strong><br>
+        FENRIX HOSPITALITY<br>
+        HANOI · VIETNAM
       </div>
 
     </div>
 
-  </div>
+    <div class="project-visual">
 
-  <div class="project-caption">
+      <!-- ARCHITECTURAL CONCEPT -->
+      <svg class="project-svg"
+           viewBox="0 0 1400 780"
+           xmlns="http://www.w3.org/2000/svg">
 
-    <div>
-      <h3>
-        BÚN MỌC<br>
-        <span class="gold">TÂY HỒ</span>
-      </h3>
+        <defs>
+
+          <linearGradient id="goldMetal"
+                  x1="0" y1="0"
+                  x2="1" y2="1">
+            <stop offset="0%" stop-color="#6f501d"/>
+            <stop offset="20%" stop-color="#d6b76e"/>
+            <stop offset="40%" stop-color="#fff0ad"/>
+            <stop offset="60%" stop-color="#a77932"/>
+            <stop offset="80%" stop-color="#efd18a"/>
+            <stop offset="100%" stop-color="#70501d"/>
+          </linearGradient>
+
+          <linearGradient id="glass"
+                  x1="0" y1="0"
+                  x2="0" y2="1">
+            <stop offset="0%" stop-color="#151515"/>
+            <stop offset="100%" stop-color="#050505"/>
+          </linearGradient>
+
+          <radialGradient id="light">
+            <stop offset="0%" stop-color="#f0cf82" stop-opacity=".34"/>
+            <stop offset="100%" stop-color="#f0cf82" stop-opacity="0"/>
+          </radialGradient>
+
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="12"/>
+          </filter>
+
+        </defs>
+
+        <!-- BACKGROUND -->
+        <rect width="1400" height="780" fill="#030303"/>
+
+        <circle cx="1100" cy="230"
+                r="260"
+                fill="url(#light)"
+                filter="url(#glow)"/>
+
+        <!-- CITY GRID -->
+        <g opacity=".13" stroke="#9a7b42" stroke-width="1">
+          <path d="M0 650H1400"/>
+          <path d="M0 700H1400"/>
+          <path d="M0 750H1400"/>
+          <path d="M150 0V780"/>
+          <path d="M300 0V780"/>
+          <path d="M450 0V780"/>
+          <path d="M600 0V780"/>
+          <path d="M750 0V780"/>
+          <path d="M900 0V780"/>
+          <path d="M1050 0V780"/>
+          <path d="M1200 0V780"/>
+          <path d="M1350 0V780"/>
+        </g>
+
+        <!-- BUILDING SHADOW -->
+        <rect x="145"
+              y="150"
+              width="1110"
+              height="520"
+              fill="#080808"
+              stroke="#29251e"
+              stroke-width="2"/>
+
+        <!-- GOLD ARCHITECTURAL FRAME -->
+        <rect x="175"
+              y="180"
+              width="1050"
+              height="465"
+              fill="none"
+              stroke="url(#goldMetal)"
+              stroke-width="5"/>
+
+        <!-- TOP HEADER -->
+        <rect x="205"
+              y="205"
+              width="990"
+              height="100"
+              fill="#0c0c0c"
+              stroke="#755728"
+              stroke-width="1"/>
+
+        <text x="235"
+              y="242"
+              fill="#b99550"
+              font-size="13"
+              font-family="Arial"
+              letter-spacing="5">
+          FENRIX PROJECT / 001
+        </text>
+
+        <text x="700"
+              y="283"
+              text-anchor="middle"
+              fill="url(#goldMetal)"
+              font-size="48"
+              font-weight="700"
+              font-family="Arial"
+              letter-spacing="5">
+          BÚN MỌC TÂY HỒ
+        </text>
+
+        <!-- STOREFRONT -->
+        <rect x="205"
+              y="330"
+              width="990"
+              height="275"
+              fill="url(#glass)"
+              stroke="#4d3a20"
+              stroke-width="2"/>
+
+        <!-- LEFT WINDOW -->
+        <rect x="230"
+              y="355"
+              width="265"
+              height="215"
+              fill="#101010"
+              stroke="#70552c"/>
+
+        <!-- RIGHT WINDOW -->
+        <rect x="905"
+              y="355"
+              width="265"
+              height="215"
+              fill="#101010"
+              stroke="#70552c"/>
+
+        <!-- CENTER DOOR -->
+        <rect x="535"
+              y="350"
+              width="330"
+              height="255"
+              fill="#0b0b0b"
+              stroke="url(#goldMetal)"
+              stroke-width="3"/>
+
+        <line x1="700"
+              y1="350"
+              x2="700"
+              y2="605"
+              stroke="#614921"
+              stroke-width="2"/>
+
+        <!-- WARM INTERIOR -->
+        <rect x="555"
+              y="375"
+              width="290"
+              height="205"
+              fill="#17120b"/>
+
+        <circle cx="700"
+                cy="470"
+                r="95"
+                fill="url(#light)"
+                opacity=".55"/>
+
+        <!-- TABLES -->
+        <g stroke="#8d6b34"
+           fill="none"
+           stroke-width="2"
+           opacity=".75">
+
+          <ellipse cx="620" cy="505"
+                   rx="42" ry="16"/>
+
+          <ellipse cx="780" cy="505"
+                   rx="42" ry="16"/>
+
+          <path d="M620 505V550"/>
+          <path d="M780 505V550"/>
+
+        </g>
+
+        <!-- BOWL ICON -->
+        <path d="M645 430
+                 Q700 470 755 430
+                 L745 458
+                 Q700 490 655 458Z"
+              fill="none"
+              stroke="url(#goldMetal)"
+              stroke-width="4"/>
+
+        <path d="M668 416 Q660 395 672 382"
+              fill="none"
+              stroke="#d6b76e"
+              stroke-width="3"/>
+
+        <path d="M700 414 Q693 390 705 376"
+              fill="none"
+              stroke="#d6b76e"
+              stroke-width="3"/>
+
+        <path d="M732 416 Q725 395 737 382"
+              fill="none"
+              stroke="#d6b76e"
+              stroke-width="3"/>
+
+        <!-- SIDE DECOR -->
+        <g fill="none"
+           stroke="#92713b"
+           opacity=".7">
+
+          <path d="M270 530
+                   Q290 470 310 530
+                   Q330 470 350 530
+                   Q370 470 390 530"/>
+
+          <path d="M1010 530
+                   Q1030 470 1050 530
+                   Q1070 470 1090 530
+                   Q1110 470 1130 530"/>
+
+        </g>
+
+        <!-- SIDE LABELS -->
+        <text x="250"
+              y="385"
+              fill="#8e7444"
+              font-size="10"
+              font-family="Arial"
+              letter-spacing="3">
+          HANOI
+        </text>
+
+        <text x="925"
+              y="385"
+              fill="#8e7444"
+              font-size="10"
+              font-family="Arial"
+              letter-spacing="3">
+          HOSPITALITY
+        </text>
+
+        <!-- BASE -->
+        <rect x="175"
+              y="645"
+              width="1050"
+              height="15"
+              fill="url(#goldMetal)"/>
+
+        <!-- LOCATION -->
+        <text x="700"
+              y="705"
+              text-anchor="middle"
+              fill="#8d887e"
+              font-size="12"
+              font-family="Arial"
+              letter-spacing="5">
+          TÂY HỒ · HANOI · VIETNAM
+        </text>
+
+        <text x="700"
+              y="740"
+              text-anchor="middle"
+              fill="#4e4a44"
+              font-size="9"
+              font-family="Arial"
+              letter-spacing="4">
+          THE FIRST BEGINNING
+        </text>
+
+      </svg>
+
     </div>
 
-    <p>
-      The first FENRIX hospitality project.
-      A Vietnamese food concept designed around identity,
-      quality and the possibility of becoming a scalable
-      modern food brand.
-      <br><br>
-      <strong style="color:#e6dfd1;">
-        THE FIRST BEGINNING.
-      </strong>
-    </p>
+    <div class="project-info">
+
+      <div>
+
+        <div class="section-label">
+          Hospitality / 001
+        </div>
+
+        <h3>
+          The first<br>
+          beginning.
+        </h3>
+
+      </div>
+
+      <div>
+
+        <p>
+          Bún Mọc Tây Hồ is the first hospitality concept developed
+          under FENRIX DEVELOPMENT. It represents the beginning of a
+          larger system built around food, identity, experience and
+          scalable business development.
+        </p>
+
+        <div class="project-details">
+
+          <div class="detail">
+            <span>Location</span>
+            <span>Tây Hồ · Hanoi</span>
+          </div>
+
+          <div class="detail">
+            <span>Project</span>
+            <span>FENRIX / 001</span>
+          </div>
+
+          <div class="detail">
+            <span>Sector</span>
+            <span>Hospitality</span>
+          </div>
+
+          <div class="detail">
+            <span>Status</span>
+            <span>In Development</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
-
 </section>
 
 <!-- STRATEGY -->
+<section class="section strategy">
+  <div class="container">
 
-<section>
+    <div class="section-label">04 / Development Strategy</div>
 
-  <div class="section-label">04 / Development Strategy</div>
+    <h2 class="section-title">
+      Build.<br>
+      Develop.<br>
+      Expand.
+    </h2>
 
-  <h2 class="section-title">
-    <span class="gold">BUILD.</span><br>
-    DEVELOP.<br>
-    EXPAND.
-  </h2>
+    <div class="strategy-grid">
 
-  <div class="strategy">
+      <div class="strategy-card">
+        <div class="num">01 / CREATE</div>
 
-    <div class="strategy-card">
-      <span>01 / CREATE</span>
-      <h3>CREATE</h3>
-      <p>
-        Find the idea. Define the identity.
-        Build the first version.
-      </p>
-    </div>
+        <h3>Create</h3>
 
-    <div class="strategy-card">
-      <span>02 / DEVELOP</span>
-      <h3>DEVELOP</h3>
-      <p>
-        Build operations, brand systems,
-        teams and sustainable foundations.
-      </p>
-    </div>
+        <p>
+          Identify opportunities, build concepts and establish
+          distinctive brands with a clear reason to exist.
+        </p>
+      </div>
 
-    <div class="strategy-card">
-      <span>03 / EXPAND</span>
-      <h3>EXPAND</h3>
-      <p>
-        Scale successful concepts through
-        locations, partnerships and investment.
-      </p>
+      <div class="strategy-card">
+        <div class="num">02 / DEVELOP</div>
+
+        <h3>Develop</h3>
+
+        <p>
+          Turn ideas into operating businesses through systems,
+          people, technology and disciplined execution.
+        </p>
+      </div>
+
+      <div class="strategy-card">
+        <div class="num">03 / EXPAND</div>
+
+        <h3>Expand</h3>
+
+        <p>
+          Scale successful concepts into new locations, new
+          markets, new partnerships and new opportunities.
+        </p>
+      </div>
+
     </div>
 
   </div>
 </section>
 
 <!-- FOUNDER -->
+<section class="section" id="founder">
+  <div class="container">
 
-<section id="founder" class="founder">
+    <div class="founder-grid">
 
-  <div class="section-label">05 / Founder</div>
+      <div class="founder-mark">
 
-  <div class="founder-grid">
+        <div class="big-f metal">F</div>
 
-    <div class="founder-logo">
-      <div class="f">F</div>
-    </div>
-
-    <div>
-
-      <div class="section-label">
-        FENRIX DEVELOPMENT
       </div>
 
-      <h2 class="founder-name">
-        ĐOÀN NGỌC <span class="gold">ÁNH</span>
-      </h2>
+      <div>
 
-      <div class="founder-role">
-        Founder — FENRIX DEVELOPMENT
+        <div class="section-label">
+          05 / Founder
+        </div>
+
+        <h2 class="founder-name">
+          Đoàn<br>
+          Ngọc Ánh
+        </h2>
+
+        <div class="founder-role">
+          Founder · FENRIX DEVELOPMENT
+        </div>
+
+        <div style="height:38px"></div>
+
+        <div class="founder-quote">
+          “I believe a business should not exist only to make money.
+          It should create identity, opportunity and something that
+          can continue to grow beyond the person who started it.”
+        </div>
+
+        <p class="founder-text">
+          FENRIX begins with the ambition to build from Vietnam,
+          think beyond Vietnam and create businesses with a future.
+          The first project may begin with one location, but the
+          vision is to build an ecosystem.
+        </p>
+
       </div>
-
-      <p class="founder-quote">
-        “I believe a business should not exist only to make money.
-        It should create identity, opportunity and something that
-        can continue to grow beyond the person who started it.”
-      </p>
-
-      <p class="founder-text">
-        FENRIX begins with the ambition to build from Vietnam,
-        think beyond Vietnam and create businesses with a future.
-        The first project may begin with one location,
-        but the vision is to build an ecosystem.
-      </p>
 
     </div>
 
@@ -1059,59 +1475,124 @@ footer{
 </section>
 
 <!-- VISION -->
+<section class="section vision">
 
-<section class="vision">
+  <div class="container">
 
-  <div class="section-label">06 / Long-term Vision</div>
+    <div class="section-label">
+      06 / Vision
+    </div>
 
-  <h2>
-    NOT JUST<br>
-    A <span class="gold">COMPANY.</span>
-  </h2>
+    <h2>
+      <span>Not just</span>
+      <span class="metal">a company.</span>
+      <span>A system.</span>
+    </h2>
 
-  <h2>
-    A <span class="gold">SYSTEM.</span>
-  </h2>
+    <p class="vision-sub">
+      FENRIX DEVELOPMENT is built to connect ideas, businesses,
+      people and capital into a system capable of creating
+      long-term value.
+    </p>
+
+  </div>
 
 </section>
 
 <!-- CONTACT -->
+<section class="section contact" id="contact">
 
-<section id="contact" class="contact">
+  <div class="container">
 
-  <div class="section-label">07 / Contact FENRIX</div>
+    <div class="contact-grid">
 
-  <h2 class="contact-title">
-    LET'S BUILD<br>
-    <span class="gold">WHAT'S NEXT.</span>
-  </h2>
+      <div>
 
-  <div class="contact-box">
+        <div class="section-label">
+          07 / Contact
+        </div>
 
-    <div class="contact-item">
-      <small>PHONE</small>
-      <a href="tel:+84973344387">
-        +84 973 344 387
-      </a>
-    </div>
+        <h2 class="contact-title">
+          Let's<br>
+          build<br>
+          <span class="metal">future.</span>
+        </h2>
 
-    <div class="contact-item">
-      <small>EMAIL</small>
-      <a href="mailto:dnabookingvn@gmail.com">
-        dnabookingvn@gmail.com
-      </a>
+      </div>
+
+      <div class="contact-links">
+
+        <a class="contact-item"
+           href="tel:+84973344387">
+          <span>Phone</span>
+          <strong>+84 973 344 387 ↗</strong>
+        </a>
+
+        <a class="contact-item"
+           href="mailto:dnabookingvn@gmail.com">
+          <span>Email</span>
+          <strong>dnabookingvn@gmail.com ↗</strong>
+        </a>
+
+        <div class="contact-item">
+          <span>Based</span>
+          <strong>Hanoi · Vietnam</strong>
+        </div>
+
+        <div class="contact-item">
+          <span>Direction</span>
+          <strong>Global</strong>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
 </section>
 
-</main>
-
+<!-- FOOTER -->
 <footer>
-  <div>© 2026 FENRIX DEVELOPMENT</div>
-  <div>BUILDING IDEAS. DEVELOPING FUTURES.</div>
+
+  <div class="footer-inner">
+
+    <span>© 2026 FENRIX DEVELOPMENT</span>
+
+    <span>BUILDING IDEAS. DEVELOPING FUTURES.</span>
+
+    <span>VIETNAM / GLOBAL DIRECTION</span>
+
+  </div>
+
 </footer>
+
+<script>
+/* Simple reveal effect */
+
+const revealItems = document.querySelectorAll(
+  '.section-title, .eco-row, .strategy-card, .founder-grid, .project-info, .contact-grid'
+);
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+},{
+  threshold:.08
+});
+
+revealItems.forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(24px)';
+  el.style.transition='opacity .8s ease, transform .8s ease';
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
