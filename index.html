@@ -1,1815 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FENRIX DEVELOPMENT | Building What's Next</title>
 
 <meta name="description"
-content="FENRIX DEVELOPMENT is an independent development group building brands, businesses and long-term opportunities.">
+content="FENRIX DEVELOPMENT is an independent development group building projects, brands and long-term opportunities.">
 
 <style>
 
 /* =====================================================
-   FENRIX DEVELOPMENT
-   VERSION 4
-===================================================== */
-
-
-/* =====================================================
-   ROOT
+   FENRIX DEVELOPMENT — VERSION 5
 ===================================================== */
 
 :root{
-
---bg:#070707;
-
---bg-soft:#0d0d0d;
-
---bg-card:#111111;
-
---text:#f3f0ea;
-
---muted:#8b8984;
-
---line:rgba(255,255,255,.10);
-
---accent:#d06b42;
-
---accent-soft:rgba(208,107,66,.15);
-
+  --bg:#070707;
+  --bg-soft:#0d0d0d;
+  --bg-card:#111111;
+  --text:#f3f0ea;
+  --muted:#8b8984;
+  --line:rgba(255,255,255,.10);
+  --accent:#d06b42;
+  --accent-soft:rgba(208,107,66,.14);
 }
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
 
 html{
-
-scroll-behavior:smooth;
-
+  scroll-behavior:smooth;
 }
-
 
 body{
-
-background:var(--bg);
-
-color:var(--text);
-
-font-family:
-
-Arial,
-Helvetica,
-sans-serif;
-
-overflow-x:hidden;
-
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
-
 
 a{
-
-color:inherit;
-
-text-decoration:none;
-
+  color:inherit;
+  text-decoration:none;
 }
-
 
 /* =====================================================
    BACKGROUND
 ===================================================== */
 
 .noise{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-z-index:9999;
-
-opacity:.025;
-
-background-image:
-
-radial-gradient(
-
-rgba(255,255,255,.8) 1px,
-
-transparent 1px
-
-);
-
-background-size:4px 4px;
-
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.025;
+  z-index:9999;
+  background-image:
+  radial-gradient(rgba(255,255,255,.8) 1px,transparent 1px);
+  background-size:4px 4px;
 }
-
 
 .grid{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-opacity:.025;
-
-background-image:
-
-linear-gradient(
-
-var(--line) 1px,
-
-transparent 1px
-
-),
-
-linear-gradient(
-
-90deg,
-
-var(--line) 1px,
-
-transparent 1px
-
-);
-
-background-size:
-
-90px 90px;
-
-mask-image:
-
-linear-gradient(
-
-to bottom,
-
-black,
-
-transparent 80%
-
-);
-
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.025;
+  background-image:
+  linear-gradient(var(--line) 1px,transparent 1px),
+  linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:90px 90px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
 }
-
 
 /* =====================================================
    NAVIGATION
 ===================================================== */
 
 nav{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:84px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:0 7%;
-
-z-index:1000;
-
-border-bottom:
-
-1px solid var(--line);
-
-background:
-
-rgba(7,7,7,.78);
-
-backdrop-filter:
-
-blur(20px);
-
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:84px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+  border-bottom:1px solid var(--line);
+  background:rgba(7,7,7,.8);
+  backdrop-filter:blur(20px);
 }
-
 
 .logo{
-
-display:flex;
-
-align-items:center;
-
-gap:14px;
-
-font-size:12px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
 }
-
 
 .logo-symbol{
-
-width:36px;
-
-height:36px;
-
-display:grid;
-
-place-items:center;
-
-border:
-
-1px solid var(--accent);
-
-color:
-
-var(--accent);
-
-font-weight:900;
-
-font-size:16px;
-
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-weight:900;
 }
-
 
 .nav-links{
-
-display:flex;
-
-align-items:center;
-
-gap:30px;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-color:
-
-var(--muted);
-
+  display:flex;
+  align-items:center;
+  gap:28px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
 }
-
 
 .nav-links a{
-
-transition:.3s;
-
+  transition:.3s;
 }
-
 
 .nav-links a:hover{
-
-color:
-
-var(--text);
-
+  color:var(--text);
 }
-
 
 .nav-contact{
-
-padding:
-
-12px 18px;
-
-border:
-
-1px solid var(--line);
-
-transition:.3s;
-
+  border:1px solid var(--line);
+  padding:12px 18px;
 }
-
 
 .nav-contact:hover{
-
-border-color:
-
-var(--accent);
-
-color:
-
-var(--accent);
-
+  border-color:var(--accent);
+  color:var(--accent);
 }
-
 
 .menu{
-
-display:none;
-
-background:none;
-
-border:0;
-
-color:var(--text);
-
-font-size:11px;
-
-letter-spacing:2px;
-
-cursor:pointer;
-
+  display:none;
+  background:none;
+  border:0;
+  color:var(--text);
+  cursor:pointer;
+  font-size:10px;
+  letter-spacing:2px;
 }
-
 
 /* =====================================================
    MOBILE MENU
 ===================================================== */
 
 .mobile-menu{
-
-position:fixed;
-
-top:84px;
-
-left:0;
-
-width:100%;
-
-height:0;
-
-overflow:hidden;
-
-background:
-
-rgba(7,7,7,.98);
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-gap:35px;
-
-transition:.4s;
-
-z-index:900;
-
+  position:fixed;
+  top:84px;
+  left:0;
+  width:100%;
+  height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:32px;
+  background:#080808;
+  transition:.4s;
+  z-index:900;
 }
-
 
 .mobile-menu.active{
-
-height:
-
-calc(100vh - 84px);
-
+  height:calc(100vh - 84px);
 }
-
 
 .mobile-menu a{
-
-font-size:26px;
-
-letter-spacing:-1px;
-
+  font-size:28px;
+  letter-spacing:-1px;
 }
-
 
 /* =====================================================
    HERO
 ===================================================== */
 
 .hero{
-
-min-height:100vh;
-
-padding:
-
-150px 10%
-
-100px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-position:relative;
-
-overflow:hidden;
-
+  min-height:100vh;
+  padding:150px 10% 100px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
 }
-
 
 .hero-glow{
-
-position:absolute;
-
-width:900px;
-
-height:900px;
-
-right:-350px;
-
-top:-250px;
-
-background:
-
-radial-gradient(
-
-circle,
-
-rgba(208,107,66,.22),
-
-transparent 65%
-
-);
-
-filter:
-
-blur(50px);
-
-animation:
-
-glow 10s infinite alternate ease-in-out;
-
+  position:absolute;
+  width:900px;
+  height:900px;
+  right:-350px;
+  top:-250px;
+  background:radial-gradient(circle,
+  rgba(208,107,66,.22),
+  transparent 65%);
+  filter:blur(50px);
+  animation:glowMove 10s infinite alternate ease-in-out;
 }
 
-
-@keyframes glow{
-
-from{
-
-transform:
-
-translate(
-
--40px,
-
--30px
-
-);
-
+@keyframes glowMove{
+  from{
+    transform:translate(-40px,-30px);
+  }
+  to{
+    transform:translate(60px,100px);
+  }
 }
-
-to{
-
-transform:
-
-translate(
-
-60px,
-
-100px
-
-);
-
-}
-
-}
-
 
 .hero-label{
-
-display:flex;
-
-align-items:center;
-
-gap:18px;
-
-font-size:10px;
-
-letter-spacing:4px;
-
-color:
-
-var(--accent);
-
-margin-bottom:35px;
-
-position:relative;
-
+  display:flex;
+  align-items:center;
+  gap:18px;
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:35px;
+  position:relative;
 }
-
 
 .hero-label:before{
-
-content:"";
-
-width:45px;
-
-height:1px;
-
-background:
-
-var(--accent);
-
+  content:"";
+  width:45px;
+  height:1px;
+  background:var(--accent);
 }
-
 
 .hero h1{
-
-font-size:
-
-clamp(
-
-70px,
-
-12vw,
-
-190px
-
-);
-
-letter-spacing:
-
--9px;
-
-line-height:.76;
-
-max-width:
-
-1300px;
-
-position:relative;
-
+  position:relative;
+  font-size:clamp(72px,12vw,190px);
+  letter-spacing:-9px;
+  line-height:.76;
+  max-width:1300px;
 }
-
 
 .hero h1 span{
-
-color:
-
-var(--accent);
-
+  color:var(--accent);
 }
 
-
-.hero-sub{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:flex-end;
-
-gap:50px;
-
-margin-top:60px;
-
-position:relative;
-
+.hero-bottom{
+  position:relative;
+  margin-top:60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:50px;
 }
-
 
 .hero-text{
-
-max-width:
-
-540px;
-
-color:
-
-var(--muted);
-
-font-size:16px;
-
-line-height:1.9;
-
+  max-width:540px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.9;
 }
-
 
 .hero-info{
-
-display:flex;
-
-gap:35px;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-color:
-
-var(--muted);
-
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
 }
-
 
 .hero-watermark{
-
-position:absolute;
-
-right:-40px;
-
-bottom:-80px;
-
-font-size:
-
-clamp(
-
-180px,
-
-25vw,
-
-400px
-
-);
-
-font-weight:900;
-
-letter-spacing:-20px;
-
-color:
-
-rgba(255,255,255,.025);
-
-pointer-events:none;
-
+  position:absolute;
+  right:-40px;
+  bottom:-90px;
+  font-size:clamp(160px,24vw,390px);
+  font-weight:900;
+  letter-spacing:-20px;
+  color:rgba(255,255,255,.025);
+  pointer-events:none;
 }
-
-
-.scroll{
-
-position:absolute;
-
-bottom:35px;
-
-right:7%;
-
-font-size:9px;
-
-letter-spacing:3px;
-
-color:
-
-var(--muted);
-
-writing-mode:
-
-vertical-rl;
-
-}
-
 
 /* =====================================================
    TICKER
 ===================================================== */
 
 .ticker{
-
-border-top:
-
-1px solid var(--line);
-
-border-bottom:
-
-1px solid var(--line);
-
-overflow:hidden;
-
-white-space:nowrap;
-
-padding:
-
-18px 0;
-
-background:
-
-var(--bg-soft);
-
+  overflow:hidden;
+  white-space:nowrap;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:18px 0;
+  background:var(--bg-soft);
 }
-
 
 .ticker-track{
-
-display:inline-block;
-
-animation:
-
-ticker 25s linear infinite;
-
-font-size:10px;
-
-letter-spacing:3px;
-
-color:
-
-var(--muted);
-
+  display:inline-block;
+  animation:tickerMove 25s linear infinite;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--muted);
 }
-
 
 .ticker-track span{
-
-margin-right:55px;
-
+  margin-right:55px;
 }
-
 
 .ticker-track strong{
-
-color:
-
-var(--accent);
-
-font-weight:400;
-
+  color:var(--accent);
+  font-weight:400;
 }
 
-
-@keyframes ticker{
-
-from{
-
-transform:
-
-translateX(0);
-
+@keyframes tickerMove{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
 }
-
-to{
-
-transform:
-
-translateX(-50%);
-
-}
-
-}
-
 
 /* =====================================================
-   SECTIONS
+   GLOBAL SECTIONS
 ===================================================== */
 
 section{
-
-padding:
-
-150px 10%;
-
-border-top:
-
-1px solid var(--line);
-
-position:relative;
-
+  padding:150px 10%;
+  border-top:1px solid var(--line);
+  position:relative;
 }
-
 
 .section-label{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-font-size:10px;
-
-letter-spacing:4px;
-
-color:
-
-var(--accent);
-
-margin-bottom:30px;
-
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:30px;
 }
-
 
 .section-label:before{
-
-content:"";
-
-width:30px;
-
-height:1px;
-
-background:
-
-var(--accent);
-
+  content:"";
+  width:30px;
+  height:1px;
+  background:var(--accent);
 }
-
 
 .section-title{
-
-font-size:
-
-clamp(
-
-50px,
-
-7vw,
-
-110px
-
-);
-
-letter-spacing:
-
--6px;
-
-line-height:.85;
-
-max-width:
-
-1100px;
-
-margin-bottom:65px;
-
+  font-size:clamp(50px,7vw,110px);
+  letter-spacing:-6px;
+  line-height:.85;
+  max-width:1100px;
+  margin-bottom:65px;
 }
-
 
 .section-text{
-
-font-size:16px;
-
-line-height:1.9;
-
-color:
-
-var(--muted);
-
-max-width:
-
-650px;
-
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.9;
+  max-width:680px;
 }
 
-
 /* =====================================================
-   ABOUT
+   BRAND
 ===================================================== */
 
-.about-grid{
-
-display:grid;
-
-grid-template-columns:
-
-1.2fr .8fr;
-
-gap:110px;
-
+.brand-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+  align-items:center;
 }
 
-
-.about-statement{
-
-font-size:
-
-clamp(
-
-30px,
-
-3.5vw,
-
-52px
-
-);
-
-line-height:1.05;
-
-letter-spacing:-2px;
-
-margin-bottom:40px;
-
-max-width:
-
-700px;
-
+.brand-mark{
+  min-height:520px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
 }
 
-
-.about-statement span{
-
-color:
-
-var(--accent);
-
+.brand-mark:before{
+  content:"F";
+  position:absolute;
+  font-size:420px;
+  font-weight:900;
+  color:rgba(255,255,255,.025);
 }
 
-
-.about-stats{
-
-border-left:
-
-1px solid var(--line);
-
-padding-left:45px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:45px;
-
+.brand-icon{
+  width:180px;
+  height:180px;
+  border:1px solid var(--accent);
+  display:grid;
+  place-items:center;
+  font-size:100px;
+  color:var(--accent);
+  font-weight:900;
+  position:relative;
 }
 
-
-.stat{
-
-border-top:
-
-1px solid var(--line);
-
-padding-top:20px;
-
+.brand-statement{
+  font-size:clamp(32px,4vw,58px);
+  line-height:1.02;
+  letter-spacing:-3px;
+  margin-bottom:35px;
 }
 
-
-.stat-number{
-
-font-size:46px;
-
-letter-spacing:-2px;
-
-margin-bottom:10px;
-
+.brand-statement span{
+  color:var(--accent);
 }
-
-
-.stat-text{
-
-font-size:13px;
-
-line-height:1.7;
-
-color:
-
-var(--muted);
-
-}
-
 
 /* =====================================================
-   ECOSYSTEM
+   CORPORATE STRUCTURE
 ===================================================== */
 
-.ecosystem-grid{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(4,1fr);
-
-border-top:
-
-1px solid var(--line);
-
-border-left:
-
-1px solid var(--line);
-
+.structure{
+  background:var(--bg-soft);
 }
 
-
-.eco-card{
-
-min-height:380px;
-
-padding:40px;
-
-border-right:
-
-1px solid var(--line);
-
-border-bottom:
-
-1px solid var(--line);
-
-position:relative;
-
-overflow:hidden;
-
-transition:.4s;
-
+.structure-tree{
+  margin-top:70px;
+  border-top:1px solid var(--line);
 }
 
-
-.eco-card:hover{
-
-background:
-
-var(--bg-soft);
-
-transform:
-
-translateY(-8px);
-
+.structure-parent{
+  padding:35px;
+  border:1px solid var(--line);
+  border-top:0;
+  font-size:clamp(30px,4vw,55px);
+  letter-spacing:-2px;
 }
 
-
-.eco-number{
-
-font-size:10px;
-
-letter-spacing:3px;
-
-color:
-
-var(--accent);
-
+.structure-parent span{
+  color:var(--accent);
 }
 
-
-.eco-card h3{
-
-margin-top:120px;
-
-font-size:28px;
-
-letter-spacing:-1px;
-
-margin-bottom:18px;
-
+.structure-children{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-left:1px solid var(--line);
 }
 
-
-.eco-card p{
-
-font-size:13px;
-
-line-height:1.8;
-
-color:
-
-var(--muted);
-
+.structure-card{
+  min-height:280px;
+  padding:40px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-
-.eco-glow{
-
-position:absolute;
-
-width:250px;
-
-height:250px;
-
-right:-150px;
-
-bottom:-150px;
-
-background:
-
-var(--accent);
-
-filter:
-
-blur(100px);
-
-opacity:0;
-
-transition:.5s;
-
+.structure-card .number{
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:70px;
 }
 
-
-.eco-card:hover .eco-glow{
-
-opacity:.14;
-
+.structure-card h3{
+  font-size:28px;
+  margin-bottom:15px;
 }
 
+.structure-card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
 
 /* =====================================================
-   GLOBAL DIRECTION
-===================================================== */
-
-.global{
-
-background:
-
-var(--bg-soft);
-
-}
-
-
-.global-grid{
-
-display:grid;
-
-grid-template-columns:
-
-1fr 1fr;
-
-gap:100px;
-
-align-items:center;
-
-}
-
-
-.global-map{
-
-min-height:500px;
-
-border:
-
-1px solid var(--line);
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-
-.global-map span{
-
-font-size:
-
-clamp(
-
-100px,
-
-15vw,
-
-250px
-
-);
-
-font-weight:900;
-
-color:
-
-rgba(255,255,255,.03);
-
-letter-spacing:-15px;
-
-}
-
-
-.map-point{
-
-position:absolute;
-
-width:10px;
-
-height:10px;
-
-border-radius:50%;
-
-background:
-
-var(--accent);
-
-box-shadow:
-
-0 0 30px
-
-var(--accent);
-
-}
-
-
-.point-1{
-
-top:42%;
-
-left:45%;
-
-}
-
-
-.point-2{
-
-top:58%;
-
-left:62%;
-
-opacity:.5;
-
-}
-
-
-.point-3{
-
-top:32%;
-
-left:70%;
-
-opacity:.3;
-
-}
-
-
-/* =====================================================
-   STRATEGY
-===================================================== */
-
-.strategy-grid{
-
-display:grid;
-
-grid-template-columns:
-
-repeat(3,1fr);
-
-border-top:
-
-1px solid var(--line);
-
-border-left:
-
-1px solid var(--line);
-
-}
-
-
-.strategy-item{
-
-padding:40px;
-
-min-height:320px;
-
-border-right:
-
-1px solid var(--line);
-
-border-bottom:
-
-1px solid var(--line);
-
-}
-
-
-.strategy-number{
-
-font-size:10px;
-
-letter-spacing:3px;
-
-color:
-
-var(--accent);
-
-margin-bottom:80px;
-
-}
-
-
-.strategy-item h3{
-
-font-size:36px;
-
-margin-bottom:20px;
-
-letter-spacing:-1px;
-
-}
-
-
-.strategy-item p{
-
-font-size:14px;
-
-line-height:1.8;
-
-color:
-
-var(--muted);
-
-}
-
-
-/* =====================================================
-   PROJECTS
+   PROJECT 001
 ===================================================== */
 
 .project-card{
-
-min-height:620px;
-
-border:
-
-1px solid var(--line);
-
-padding:75px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:space-between;
-
-position:relative;
-
-overflow:hidden;
-
-background:
-
-linear-gradient(
-
-135deg,
-
-rgba(208,107,66,.14),
-
-transparent 60%
-
-);
-
+  min-height:700px;
+  padding:75px;
+  border:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(
+  135deg,
+  rgba(208,107,66,.16),
+  transparent 60%);
 }
-
 
 .project-number{
-
-font-size:10px;
-
-letter-spacing:4px;
-
-color:
-
-var(--accent);
-
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:4px;
+  position:relative;
 }
-
 
 .project-card h3{
-
-font-size:
-
-clamp(
-
-60px,
-
-10vw,
-
-150px
-
-);
-
-line-height:.78;
-
-letter-spacing:-8px;
-
-max-width:
-
-900px;
-
+  position:relative;
+  font-size:clamp(65px,10vw,155px);
+  letter-spacing:-8px;
+  line-height:.78;
+  max-width:950px;
 }
 
-
-.project-card p{
-
-max-width:
-
-600px;
-
-font-size:16px;
-
-line-height:1.9;
-
-color:
-
-var(--muted);
-
+.project-content{
+  position:relative;
+  max-width:650px;
 }
 
+.project-content p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.9;
+  margin-bottom:35px;
+}
+
+.project-tags{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  border:1px solid var(--line);
+  padding:10px 14px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--muted);
+}
 
 .project-bottom{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
 }
-
 
 .status{
-
-padding:
-
-13px 20px;
-
-border:
-
-1px solid var(--accent);
-
-color:
-
-var(--accent);
-
-font-size:10px;
-
-letter-spacing:3px;
-
+  color:var(--accent);
+  border:1px solid var(--accent);
+  padding:13px 20px;
+  font-size:10px;
+  letter-spacing:3px;
 }
 
-
-.project-mark{
-
-font-size:35px;
-
-color:
-
-var(--accent);
-
+.project-arrow{
+  color:var(--accent);
+  font-size:38px;
 }
-
 
 .project-watermark{
-
-position:absolute;
-
-right:-30px;
-
-bottom:-60px;
-
-font-size:
-
-clamp(
-
-160px,
-
-25vw,
-
-350px
-
-);
-
-font-weight:900;
-
-color:
-
-rgba(255,255,255,.025);
-
-letter-spacing:-20px;
-
+  position:absolute;
+  right:-40px;
+  bottom:-70px;
+  font-size:clamp(180px,28vw,420px);
+  font-weight:900;
+  letter-spacing:-25px;
+  color:rgba(255,255,255,.025);
 }
 
+/* =====================================================
+   PROJECT DEVELOPMENT
+===================================================== */
+
+.project-development{
+  background:var(--bg-soft);
+}
+
+.stage-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+
+.stage{
+  padding:35px;
+  min-height:260px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.stage-number{
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:70px;
+}
+
+.stage h3{
+  font-size:23px;
+  margin-bottom:15px;
+}
+
+.stage p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
 
 /* =====================================================
    ROADMAP
 ===================================================== */
 
-.roadmap{
-
-background:
-
-var(--bg-soft);
-
-}
-
-
 .timeline{
-
-border-left:
-
-1px solid var(--line);
-
-margin-top:80px;
-
+  margin-top:75px;
+  border-left:1px solid var(--line);
 }
-
 
 .timeline-item{
-
-padding:
-
-0 0 70px 55px;
-
-position:relative;
-
+  padding:0 0 75px 55px;
+  position:relative;
 }
-
 
 .timeline-item:before{
-
-content:"";
-
-position:absolute;
-
-width:12px;
-
-height:12px;
-
-border-radius:50%;
-
-background:
-
-var(--accent);
-
-left:-6px;
-
-top:5px;
-
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--accent);
+  left:-6px;
+  top:5px;
 }
-
 
 .timeline-year{
-
-font-size:11px;
-
-letter-spacing:3px;
-
-color:
-
-var(--accent);
-
-margin-bottom:15px;
-
+  color:var(--accent);
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:15px;
 }
-
 
 .timeline-item h3{
-
-font-size:30px;
-
-margin-bottom:15px;
-
+  font-size:32px;
+  margin-bottom:15px;
 }
-
 
 .timeline-item p{
-
-color:
-
-var(--muted);
-
-font-size:14px;
-
-line-height:1.8;
-
-max-width:
-
-550px;
-
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+  max-width:600px;
 }
-
 
 /* =====================================================
    MANIFESTO
 ===================================================== */
 
 .manifesto{
-
-text-align:center;
-
-padding:
-
-200px 10%;
-
+  padding:200px 10%;
+  text-align:center;
 }
-
 
 .manifesto .section-label{
-
-justify-content:center;
-
+  justify-content:center;
 }
-
 
 .manifesto h2{
-
-font-size:
-
-clamp(
-
-60px,
-
-10vw,
-
-160px
-
-);
-
-line-height:.8;
-
-letter-spacing:-8px;
-
+  font-size:clamp(60px,10vw,160px);
+  letter-spacing:-8px;
+  line-height:.8;
 }
-
 
 .manifesto span{
-
-color:
-
-var(--accent);
-
+  color:var(--accent);
 }
-
 
 /* =====================================================
    CONTACT
 ===================================================== */
 
 .contact{
-
-min-height:80vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-background:
-
-radial-gradient(
-
-circle at 80% 50%,
-
-rgba(208,107,66,.13),
-
-transparent 35%
-
-);
-
+  min-height:85vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:radial-gradient(
+  circle at 80% 50%,
+  rgba(208,107,66,.14),
+  transparent 35%);
 }
-
 
 .contact h2{
-
-font-size:
-
-clamp(
-
-65px,
-
-10vw,
-
-150px
-
-);
-
-letter-spacing:-8px;
-
-line-height:.78;
-
-margin-bottom:40px;
-
+  font-size:clamp(65px,10vw,150px);
+  letter-spacing:-8px;
+  line-height:.78;
+  margin-bottom:40px;
 }
 
-
-.contact p{
-
-font-size:16px;
-
-color:
-
-var(--muted);
-
-line-height:1.8;
-
-margin-bottom:45px;
-
+.contact-intro{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.8;
+  margin-bottom:45px;
 }
 
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(250px,360px));
+  gap:18px;
+  margin-bottom:45px;
+}
+
+.contact-card{
+  border:1px solid var(--line);
+  padding:25px;
+  transition:.3s;
+}
+
+.contact-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-4px);
+}
+
+.contact-label{
+  color:var(--accent);
+  font-size:9px;
+  letter-spacing:3px;
+  margin-bottom:15px;
+}
+
+.contact-value{
+  font-size:17px;
+  letter-spacing:-.5px;
+}
+
+.contact-value a{
+  transition:.3s;
+}
+
+.contact-value a:hover{
+  color:var(--accent);
+}
 
 .contact-button{
-
-display:inline-flex;
-
-align-items:center;
-
-gap:25px;
-
-width:max-content;
-
-padding:
-
-20px 30px;
-
-background:
-
-var(--text);
-
-color:
-
-var(--bg);
-
-font-size:10px;
-
-letter-spacing:3px;
-
-transition:.35s;
-
+  display:inline-flex;
+  align-items:center;
+  gap:22px;
+  width:max-content;
+  padding:20px 30px;
+  background:var(--text);
+  color:var(--bg);
+  font-size:10px;
+  letter-spacing:3px;
+  transition:.35s;
 }
-
 
 .contact-button:hover{
-
-background:
-
-var(--accent);
-
-color:white;
-
-transform:
-
-translateY(-4px);
-
+  background:var(--accent);
+  color:white;
+  transform:translateY(-4px);
 }
-
 
 /* =====================================================
    FOOTER
 ===================================================== */
 
 footer{
-
-padding:
-
-40px 10%;
-
-border-top:
-
-1px solid var(--line);
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:30px;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-color:
-
-var(--muted);
-
+  padding:40px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
 }
-
 
 .footer-links{
-
-display:flex;
-
-gap:25px;
-
+  display:flex;
+  gap:25px;
 }
 
-
 /* =====================================================
-   ANIMATION
+   REVEAL
 ===================================================== */
 
 .reveal{
-
-opacity:0;
-
-transform:
-
-translateY(50px);
-
-transition:
-
-opacity 1s ease,
-
-transform 1s ease;
-
+  opacity:0;
+  transform:translateY(45px);
+  transition:
+  opacity 1s ease,
+  transform 1s ease;
 }
-
 
 .reveal.active{
-
-opacity:1;
-
-transform:
-
-translateY(0);
-
+  opacity:1;
+  transform:translateY(0);
 }
-
 
 /* =====================================================
    MOBILE
@@ -1817,390 +795,180 @@ translateY(0);
 
 @media(max-width:1000px){
 
-.nav-links{
+  .nav-links{
+    display:none;
+  }
 
-display:none;
+  .menu{
+    display:block;
+  }
 
-}
+  .hero{
+    padding:140px 7% 100px;
+  }
 
+  .hero-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
-.menu{
+  section{
+    padding:110px 7%;
+  }
 
-display:block;
+  .brand-grid{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
 
-}
+  .structure-children{
+    grid-template-columns:1fr;
+  }
 
+  .stage-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-.hero{
+  .project-card{
+    padding:50px 30px;
+  }
 
-padding:
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
 
-140px 7%
+  .manifesto{
+    padding:140px 7%;
+  }
 
-100px;
-
-}
-
-
-.hero-sub{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-}
-
-
-.hero-info{
-
-flex-wrap:wrap;
-
-}
-
-
-.scroll{
-
-display:none;
-
-}
-
-
-section{
-
-padding:
-
-110px 7%;
+  footer{
+    padding:35px 7%;
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
 }
-
-
-.about-grid{
-
-grid-template-columns:
-
-1fr;
-
-gap:60px;
-
-}
-
-
-.about-stats{
-
-border-left:0;
-
-border-top:
-
-1px solid var(--line);
-
-padding-left:0;
-
-padding-top:30px;
-
-}
-
-
-.ecosystem-grid{
-
-grid-template-columns:
-
-repeat(2,1fr);
-
-}
-
-
-.global-grid{
-
-grid-template-columns:
-
-1fr;
-
-gap:60px;
-
-}
-
-
-.strategy-grid{
-
-grid-template-columns:
-
-1fr;
-
-}
-
-
-.project-card{
-
-padding:
-
-50px 30px;
-
-}
-
-
-.manifesto{
-
-padding:
-
-140px 7%;
-
-}
-
-
-footer{
-
-padding:
-
-35px 7%;
-
-flex-direction:column;
-
-align-items:flex-start;
-
-}
-
-}
-
 
 @media(max-width:600px){
 
-.hero h1{
+  .hero h1{
+    font-size:19vw;
+    letter-spacing:-4px;
+  }
 
-font-size:19vw;
+  .hero-text{
+    font-size:14px;
+  }
 
-letter-spacing:-4px;
+  .brand-mark{
+    min-height:360px;
+  }
 
-}
+  .brand-icon{
+    width:140px;
+    height:140px;
+    font-size:75px;
+  }
 
+  .stage-grid{
+    grid-template-columns:1fr;
+  }
 
-.hero-text{
+  .project-card{
+    min-height:620px;
+  }
 
-font-size:14px;
+  .project-card h3{
+    font-size:18vw;
+    letter-spacing:-5px;
+  }
 
-}
+  .contact h2{
+    font-size:19vw;
+    letter-spacing:-5px;
+  }
 
+  .manifesto h2{
+    letter-spacing:-4px;
+  }
 
-.ecosystem-grid{
-
-grid-template-columns:
-
-1fr;
-
-}
-
-
-.eco-card{
-
-min-height:280px;
-
-}
-
-
-.eco-card h3{
-
-margin-top:75px;
-
-}
-
-
-.global-map{
-
-min-height:350px;
-
-}
-
-
-.project-card h3{
-
-font-size:18vw;
-
-letter-spacing:-5px;
-
-}
-
-
-.project-bottom{
-
-align-items:flex-end;
-
-}
-
-
-.contact h2{
-
-font-size:19vw;
-
-letter-spacing:-5px;
-
-}
-
-
-.manifesto h2{
-
-letter-spacing:-4px;
-
-}
-
-
-.footer-links{
-
-flex-wrap:wrap;
-
-}
+  .footer-links{
+    flex-wrap:wrap;
+  }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="noise"></div>
-
 <div class="grid"></div>
-
 
 <!-- NAVIGATION -->
 
 <nav>
 
+<a href="#" class="logo">
 
-<a
-href="#"
-class="logo">
-
-<div class="logo-symbol">
-
-F
-
-</div>
+<div class="logo-symbol">F</div>
 
 FENRIX DEVELOPMENT
 
 </a>
 
-
 <div class="nav-links">
 
-<a href="#about">
+<a href="#about">ABOUT</a>
 
-ABOUT
+<a href="#structure">STRUCTURE</a>
 
-</a>
+<a href="#projects">PROJECTS</a>
 
-<a href="#ecosystem">
+<a href="#roadmap">ROADMAP</a>
 
-ECOSYSTEM
-
-</a>
-
-<a href="#projects">
-
-PROJECTS
-
-</a>
-
-<a href="#roadmap">
-
-ROADMAP
-
-</a>
-
-<a
-href="#contact"
-class="nav-contact">
-
-CONTACT
-
-</a>
+<a href="#contact" class="nav-contact">CONTACT</a>
 
 </div>
 
-
-<button
-class="menu"
-onclick="toggleMenu()">
+<button class="menu" onclick="toggleMenu()">
 
 MENU
 
 </button>
-
 
 </nav>
 
 
 <!-- MOBILE MENU -->
 
-<div
-class="mobile-menu"
-id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu">
 
-<a
-href="#about"
-onclick="closeMenu()">
+<a href="#about" onclick="closeMenu()">ABOUT</a>
 
-ABOUT
+<a href="#structure" onclick="closeMenu()">STRUCTURE</a>
 
-</a>
+<a href="#projects" onclick="closeMenu()">PROJECTS</a>
 
+<a href="#roadmap" onclick="closeMenu()">ROADMAP</a>
 
-<a
-href="#ecosystem"
-onclick="closeMenu()">
-
-ECOSYSTEM
-
-</a>
-
-
-<a
-href="#projects"
-onclick="closeMenu()">
-
-PROJECTS
-
-</a>
-
-
-<a
-href="#roadmap"
-onclick="closeMenu()">
-
-ROADMAP
-
-</a>
-
-
-<a
-href="#contact"
-onclick="closeMenu()">
-
-CONTACT
-
-</a>
+<a href="#contact" onclick="closeMenu()">CONTACT</a>
 
 </div>
 
 
-
 <!-- HERO -->
 
-<section
-class="hero">
-
+<section class="hero">
 
 <div class="hero-glow"></div>
-
 
 <div class="hero-label">
 
 INDEPENDENT DEVELOPMENT GROUP
 
 </div>
-
 
 <h1>
 
@@ -2221,44 +989,27 @@ FUTURES.
 
 </h1>
 
-
-<div class="hero-sub">
-
+<div class="hero-bottom">
 
 <p class="hero-text">
 
-FENRIX DEVELOPMENT is an independent development group focused on building brands, businesses and long-term opportunities.
+FENRIX DEVELOPMENT is an independent development group focused on building projects, brands and long-term opportunities.
 
-We start with ideas, develop real projects and create the foundations for what comes next.
+We begin with real ideas, develop real foundations and build what comes next.
 
 </p>
 
-
 <div class="hero-info">
 
-<div>
+<div>EST. 2026</div>
 
-EST. 2026
+<div>VIETNAM</div>
 
-</div>
-
-<div>
-
-VIETNAM
-
-</div>
-
-<div>
-
-GLOBAL DIRECTION
+<div>GLOBAL DIRECTION</div>
 
 </div>
 
 </div>
-
-
-</div>
-
 
 <div class="hero-watermark">
 
@@ -2266,16 +1017,7 @@ FENRIX
 
 </div>
 
-
-<div class="scroll">
-
-SCROLL TO EXPLORE
-
-</div>
-
-
 </section>
-
 
 
 <!-- TICKER -->
@@ -2285,107 +1027,29 @@ SCROLL TO EXPLORE
 <div class="ticker-track">
 
 <span>
-
-BUILD
-
-<strong>
-
-●
-
-</strong>
-
-DEVELOP
-
-<strong>
-
-●
-
-</strong>
-
-EXPAND
-
-<strong>
-
-●
-
-</strong>
-
-CREATE
-
-<strong>
-
-●
-
-</strong>
-
-INVEST
-
-<strong>
-
-●
-
-</strong>
-
+BUILD <strong>●</strong>
+DEVELOP <strong>●</strong>
+CREATE <strong>●</strong>
+EXPAND <strong>●</strong>
+INVEST <strong>●</strong>
 </span>
-
 
 <span>
-
-BUILD
-
-<strong>
-
-●
-
-</strong>
-
-DEVELOP
-
-<strong>
-
-●
-
-</strong>
-
-EXPAND
-
-<strong>
-
-●
-
-</strong>
-
-CREATE
-
-<strong>
-
-●
-
-</strong>
-
-INVEST
-
-<strong>
-
-●
-
-</strong>
-
+BUILD <strong>●</strong>
+DEVELOP <strong>●</strong>
+CREATE <strong>●</strong>
+EXPAND <strong>●</strong>
+INVEST <strong>●</strong>
 </span>
 
-
 </div>
 
 </div>
-
 
 
 <!-- ABOUT -->
 
-<section
-id="about"
-class="reveal">
-
+<section id="about" class="reveal">
 
 <div class="section-label">
 
@@ -2393,494 +1057,165 @@ class="reveal">
 
 </div>
 
-
 <h2 class="section-title">
 
 FROM
 ONE IDEA
 
-TO AN
-ECOSYSTEM.
+TO
+WHAT'S NEXT.
 
 </h2>
 
-
-<div class="about-grid">
-
+<div class="brand-grid">
 
 <div>
 
+<div class="brand-statement">
 
-<div class="about-statement">
-
-Great organizations are built through
+Every large journey begins with
 
 <span>
 
-action,
+one real step.
 
 </span>
 
-persistence and the willingness to begin.
-
 </div>
-
 
 <p class="section-text">
 
-FENRIX DEVELOPMENT was created with the belief that every ambitious future begins somewhere.
+FENRIX DEVELOPMENT was created around a simple belief: ambitious futures are not discovered. They are built.
 
-Our journey starts with individual projects.
+Our journey begins with individual projects, practical experience and the determination to turn ideas into something real.
 
-Each project creates knowledge.
+Each step becomes knowledge.
 
-Each success creates opportunity.
+Each project becomes a foundation.
 
-And every step forward becomes the foundation for what comes next.
+And every foundation creates the possibility of what comes next.
 
 </p>
 
-
 </div>
 
+<div class="brand-mark">
 
+<div class="brand-icon">
 
-<div class="about-stats">
-
-
-<div class="stat">
-
-<div class="stat-number">
-
-01
-
-</div>
-
-<div class="stat-text">
-
-The first project.
-
-The first foundation.
-
-The beginning of the ecosystem.
+F
 
 </div>
 
 </div>
-
-
-<div class="stat">
-
-<div class="stat-number">
-
-∞
-
-</div>
-
-<div class="stat-text">
-
-Unlimited possibilities for future projects and opportunities.
-
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-number">
-
-2026
-
-</div>
-
-<div class="stat-text">
-
-The year the FENRIX journey begins.
-
-</div>
-
-</div>
-
-
-</div>
-
 
 </div>
 
 </section>
 
 
+<!-- STRUCTURE -->
 
-<!-- ECOSYSTEM -->
-
-<section
-id="ecosystem"
-class="reveal">
-
+<section id="structure" class="structure reveal">
 
 <div class="section-label">
 
-02 / THE ECOSYSTEM
+02 / THE FENRIX STRUCTURE
 
 </div>
-
 
 <h2 class="section-title">
 
-DIFFERENT
-INDUSTRIES.
+ONE GROUP.
 
-ONE
-DIRECTION.
+MANY
+POSSIBILITIES.
 
 </h2>
 
+<div class="structure-tree">
 
-<div class="ecosystem-grid">
+<div class="structure-parent">
 
-
-<div class="eco-card">
-
-<div class="eco-number">
-
-01 / HOSPITALITY
+<span>FENRIX</span> DEVELOPMENT
 
 </div>
 
+<div class="structure-children">
 
-<h3>
+<div class="structure-card">
 
-HOSPITALITY
+<div class="number">01</div>
 
-</h3>
-
+<h3>PROJECTS</h3>
 
 <p>
 
-Developing restaurant, food, beverage and hospitality concepts designed to grow into lasting brands.
+Real-world projects developed from early concepts into structured businesses.
 
 </p>
 
-
-<div class="eco-glow"></div>
-
 </div>
 
+<div class="structure-card">
 
+<div class="number">02</div>
 
-<div class="eco-card">
-
-<div class="eco-number">
-
-02 / CREATIVE
-
-</div>
-
-
-<h3>
-
-CREATIVE
-
-</h3>
-
+<h3>BRANDS</h3>
 
 <p>
 
-Building identities, brands and creative experiences that give ideas a recognizable presence.
+Building identities and brands with the potential to grow beyond a single location or project.
 
 </p>
 
-
-<div class="eco-glow"></div>
-
 </div>
 
+<div class="structure-card">
 
+<div class="number">03</div>
 
-<div class="eco-card">
-
-<div class="eco-number">
-
-03 / DIGITAL
-
-</div>
-
-
-<h3>
-
-DIGITAL
-
-</h3>
-
+<h3>FUTURE VENTURES</h3>
 
 <p>
 
-Exploring platforms, technology and digital opportunities that support modern business.
+Exploring new industries, opportunities and long-term directions for the ecosystem.
 
 </p>
 
-
-<div class="eco-glow"></div>
-
 </div>
 
-
-
-<div class="eco-card">
-
-<div class="eco-number">
-
-04 / INVESTMENT
-
 </div>
-
-
-<h3>
-
-INVESTMENT
-
-</h3>
-
-
-<p>
-
-Identifying promising opportunities and developing projects with long-term potential.
-
-</p>
-
-
-<div class="eco-glow"></div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
+<!-- PROJECT -->
 
-<!-- GLOBAL DIRECTION -->
-
-<section
-class="global reveal">
-
+<section id="projects" class="reveal">
 
 <div class="section-label">
 
-03 / GLOBAL DIRECTION
+03 / PROJECT PORTFOLIO
 
 </div>
-
 
 <h2 class="section-title">
 
-BUILT
-LOCAL.
-
-THINKING
-BEYOND.
+THE FIRST
+FOUNDATION.
 
 </h2>
-
-
-<div class="global-grid">
-
-
-<div>
-
-<p class="section-text">
-
-FENRIX begins in Vietnam.
-
-But opportunity does not stop at a border.
-
-Our direction is to build strong foundations locally while developing the knowledge, brands and systems capable of growing into wider markets.
-
-We believe every global journey starts with one real project.
-
-</p>
-
-</div>
-
-
-
-<div class="global-map">
-
-
-<span>
-
-FENRIX
-
-</span>
-
-
-<div class="map-point point-1"></div>
-
-<div class="map-point point-2"></div>
-
-<div class="map-point point-3"></div>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- STRATEGY -->
-
-<section
-class="reveal">
-
-
-<div class="section-label">
-
-04 / STRATEGIC DIRECTION
-
-</div>
-
-
-<h2 class="section-title">
-
-BUILD.
-DEVELOP.
-EXPAND.
-
-</h2>
-
-
-<div class="strategy-grid">
-
-
-<div class="strategy-item">
-
-
-<div class="strategy-number">
-
-01
-
-</div>
-
-
-<h3>
-
-CREATE
-
-</h3>
-
-
-<p>
-
-Every project begins as an idea.
-
-We turn early concepts into real opportunities with direction and structure.
-
-</p>
-
-
-</div>
-
-
-
-<div class="strategy-item">
-
-
-<div class="strategy-number">
-
-02
-
-</div>
-
-
-<h3>
-
-DEVELOP
-
-</h3>
-
-
-<p>
-
-We build foundations, improve operations and transform ideas into working projects.
-
-</p>
-
-
-</div>
-
-
-
-<div class="strategy-item">
-
-
-<div class="strategy-number">
-
-03
-
-</div>
-
-
-<h3>
-
-EXPAND
-
-</h3>
-
-
-<p>
-
-Every successful project becomes a platform for the next stage of growth.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- PROJECTS -->
-
-<section
-id="projects"
-class="reveal">
-
-
-<div class="section-label">
-
-05 / CURRENT PROJECTS
-
-</div>
-
-
-<h2 class="section-title">
-
-EVERY
-EMPIRE
-STARTS
-SOMEWHERE.
-
-</h2>
-
 
 <div class="project-card">
-
 
 <div class="project-number">
 
 FENRIX PROJECT / 001
 
 </div>
-
 
 <h3>
 
@@ -2889,37 +1224,47 @@ BEGINNING.
 
 </h3>
 
+<div class="project-content">
 
 <p>
 
 The first FENRIX hospitality project is currently under development.
 
-This project represents the first real-world foundation of the FENRIX ecosystem and the beginning of a much larger journey.
+This project represents the first real-world foundation of the FENRIX ecosystem.
+
+It is where strategy meets reality, ideas become operations and the journey begins to take shape.
 
 More information will be revealed as development progresses.
 
 </p>
 
+<div class="project-tags">
 
-<div class="project-bottom">
+<div class="tag">HOSPITALITY</div>
 
+<div class="tag">FOOD & BEVERAGE</div>
 
-<div class="status">
-
-IN DEVELOPMENT
+<div class="tag">IN DEVELOPMENT</div>
 
 </div>
 
+</div>
 
-<div class="project-mark">
+<div class="project-bottom">
+
+<div class="status">
+
+ACTIVE DEVELOPMENT
+
+</div>
+
+<div class="project-arrow">
 
 ↗
 
 </div>
 
-
 </div>
-
 
 <div class="project-watermark">
 
@@ -2927,26 +1272,133 @@ IN DEVELOPMENT
 
 </div>
 
+</div>
+
+</section>
+
+
+<!-- PROJECT DEVELOPMENT -->
+
+<section class="project-development reveal">
+
+<div class="section-label">
+
+04 / DEVELOPMENT PROCESS
+
+</div>
+
+<h2 class="section-title">
+
+FROM IDEA
+
+TO REALITY.
+
+</h2>
+
+<div class="stage-grid">
+
+<div class="stage">
+
+<div class="stage-number">
+
+01 / CONCEPT
+
+</div>
+
+<h3>
+
+THE IDEA
+
+</h3>
+
+<p>
+
+Defining the opportunity, direction and purpose behind the project.
+
+</p>
+
+</div>
+
+<div class="stage">
+
+<div class="stage-number">
+
+02 / DEVELOPMENT
+
+</div>
+
+<h3>
+
+THE PLAN
+
+</h3>
+
+<p>
+
+Building the structure, identity and foundation needed to move forward.
+
+</p>
+
+</div>
+
+<div class="stage">
+
+<div class="stage-number">
+
+03 / LAUNCH
+
+</div>
+
+<h3>
+
+THE START
+
+</h3>
+
+<p>
+
+Turning preparation into a real operating project and learning through action.
+
+</p>
+
+</div>
+
+<div class="stage">
+
+<div class="stage-number">
+
+04 / EXPANSION
+
+</div>
+
+<h3>
+
+WHAT'S NEXT
+
+</h3>
+
+<p>
+
+Using experience, systems and results as a platform for future growth.
+
+</p>
+
+</div>
 
 </div>
 
 </section>
 
 
-
 <!-- ROADMAP -->
 
-<section
-id="roadmap"
-class="roadmap reveal">
-
+<section id="roadmap" class="reveal">
 
 <div class="section-label">
 
-06 / THE ROAD AHEAD
+05 / THE ROAD AHEAD
 
 </div>
-
 
 <h2 class="section-title">
 
@@ -2956,12 +1408,9 @@ CHAPTER.
 
 </h2>
 
-
 <div class="timeline">
 
-
 <div class="timeline-item">
-
 
 <div class="timeline-year">
 
@@ -2969,27 +1418,21 @@ CHAPTER.
 
 </div>
 
-
 <h3>
 
 THE FOUNDATION
 
 </h3>
 
-
 <p>
 
-Launching the first FENRIX project and creating the operational foundation of the ecosystem.
+Launching the first FENRIX project and creating the operational foundation for future development.
 
 </p>
 
-
 </div>
 
-
-
 <div class="timeline-item">
-
 
 <div class="timeline-year">
 
@@ -2997,27 +1440,21 @@ NEXT
 
 </div>
 
-
 <h3>
 
 THE EXPANSION
 
 </h3>
 
-
 <p>
 
-Developing new projects, exploring additional industries and building stronger systems.
+Developing new projects, strengthening systems and exploring opportunities across additional industries.
 
 </p>
 
-
 </div>
 
-
-
 <div class="timeline-item">
-
 
 <div class="timeline-year">
 
@@ -3025,42 +1462,34 @@ FUTURE
 
 </div>
 
-
 <h3>
 
 THE ECOSYSTEM
 
 </h3>
 
-
 <p>
 
-Connecting successful projects into a larger development ecosystem built for long-term growth.
+Connecting successful projects, brands and ventures into a larger ecosystem built for long-term growth.
 
 </p>
 
-
 </div>
-
 
 </div>
 
 </section>
 
 
-
 <!-- MANIFESTO -->
 
-<section
-class="manifesto reveal">
-
+<section class="manifesto reveal">
 
 <div class="section-label">
 
 THE FENRIX MANIFESTO
 
 </div>
-
 
 <h2>
 
@@ -3082,24 +1511,18 @@ WE BUILD IT.
 
 </h2>
 
-
 </section>
-
 
 
 <!-- CONTACT -->
 
-<section
-id="contact"
-class="contact reveal">
-
+<section id="contact" class="contact reveal">
 
 <div class="section-label">
 
-07 / CONTACT
+06 / CONTACT FENRIX
 
 </div>
-
 
 <h2>
 
@@ -3115,12 +1538,9 @@ NEXT.
 
 </h2>
 
+<p class="contact-intro">
 
-<p>
-
-New ideas.
-
-New projects.
+New ideas. New projects.
 
 <br>
 
@@ -3128,9 +1548,52 @@ New opportunities.
 
 </p>
 
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="contact-label">
+
+PHONE
+
+</div>
+
+<div class="contact-value">
+
+<a href="tel:0973344387">
+
+0973 344 387
+
+</a>
+
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<div class="contact-label">
+
+EMAIL
+
+</div>
+
+<div class="contact-value">
+
+<a href="mailto:dnabookingvn@gmail.com">
+
+dnabookingvn@gmail.com
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 <a
-href="mailto:hello@fenrixdevelopment.com"
+href="mailto:dnabookingvn@gmail.com"
 class="contact-button">
 
 CONTACT FENRIX
@@ -3139,15 +1602,12 @@ CONTACT FENRIX
 
 </a>
 
-
 </section>
-
 
 
 <!-- FOOTER -->
 
 <footer>
-
 
 <div>
 
@@ -3155,169 +1615,77 @@ CONTACT FENRIX
 
 </div>
 
-
 <div class="footer-links">
 
-<span>
+<span>VIETNAM</span>
 
-VIETNAM
+<span>BUILDING IDEAS.</span>
 
-</span>
-
-<span>
-
-BUILDING IDEAS.
-
-</span>
-
-<span>
-
-DEVELOPING FUTURES.
-
-</span>
+<span>DEVELOPING FUTURES.</span>
 
 </div>
 
-
 </footer>
-
 
 
 <!-- JAVASCRIPT -->
 
 <script>
 
-
 /* REVEAL */
 
 const reveals =
-
-document.querySelectorAll(
-
-".reveal"
-
-);
-
+document.querySelectorAll(".reveal");
 
 const observer =
-
 new IntersectionObserver(
-
 entries => {
 
+entries.forEach(entry => {
 
-entries.forEach(
+if(entry.isIntersecting){
 
-entry => {
-
-
-if(
-
-entry.isIntersecting
-
-){
-
-
-entry.target
-
-.classList
-
-.add(
-
-"active"
-
-);
-
+entry.target.classList.add("active");
 
 }
 
-
-}
-
-
-);
-
+});
 
 },
-
 {
-
 threshold:.12
-
 }
-
 );
 
+reveals.forEach(element => {
 
-reveals.forEach(
+observer.observe(element);
 
-element => {
-
-
-observer.observe(
-
-element
-
-);
-
-
-}
-
-);
-
+});
 
 
 /* MOBILE MENU */
 
 function toggleMenu(){
 
-
 document
-
-.getElementById(
-
-"mobileMenu"
-
-)
-
+.getElementById("mobileMenu")
 .classList
-
-.toggle(
-
-"active"
-
-);
-
+.toggle("active");
 
 }
 
 
 function closeMenu(){
 
-
 document
-
-.getElementById(
-
-"mobileMenu"
-
-)
-
+.getElementById("mobileMenu")
 .classList
-
-.remove(
-
-"active"
-
-);
-
+.remove("active");
 
 }
 
-
 </script>
 
-
 </body>
-
 </html>
