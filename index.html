@@ -1,1598 +1,2589 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070707">
-<meta name="description" content="FENRIX DEVELOPMENT — Building Ideas. Developing Futures.">
+
 <title>FENRIX DEVELOPMENT | Building Ideas. Developing Futures.</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description"
+content="FENRIX DEVELOPMENT — Independent Development Group. Building brands, businesses and long-term opportunities.">
 
 <style>
+
+/* ========================================
+   FENRIX DEVELOPMENT
+   SINGLE PAGE WEBSITE
+======================================== */
+
 :root{
-  --bg:#070707;
-  --bg2:#0c0c0c;
-  --text:#f4f0e8;
-  --muted:#9a9790;
-  --line:rgba(255,255,255,.11);
-  --gold:#c9a35b;
-  --gold2:#f0d18a;
-  --gold3:#80612b;
-  --max:1440px;
+    --bg:#080808;
+    --bg-soft:#101010;
+    --text:#f2eee8;
+    --muted:#8d8a85;
+    --accent:#d06b42;
+    --line:#252525;
 }
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:"DM Sans",sans-serif;
-  overflow-x:hidden;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:50;
-  opacity:.055;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+    color:inherit;
+    text-decoration:none;
 }
 
-img{
-  max-width:100%;
-  display:block;
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
 }
 
-.container{
-  width:min(calc(100% - 48px),var(--max));
-  margin:auto;
+/* ========================================
+   BACKGROUND
+======================================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.35;
+
+    background-image:
+    linear-gradient(
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    );
+
+    background-size:70px 70px;
+
+    z-index:-2;
 }
 
-.gold{
-  color:var(--gold2);
-}
+/* ========================================
+   NAVIGATION
+======================================== */
 
-.metal{
-  background:linear-gradient(
-    105deg,
-    #71521f 0%,
-    #d6b56c 18%,
-    #fff0ae 34%,
-    #ad823c 52%,
-    #f1d58d 72%,
-    #765421 100%
-  );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
+nav{
+    position:fixed;
 
-/* NAV */
+    top:0;
+    left:0;
 
-.nav{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:100;
-  height:78px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:rgba(7,7,7,.72);
-  backdrop-filter:blur(18px);
-}
+    width:100%;
 
-.nav-inner{
-  height:100%;
-  width:min(calc(100% - 48px),var(--max));
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    height:80px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    background:
+    rgba(8,8,8,.88);
+
+    backdrop-filter:
+    blur(15px);
+
+    border-bottom:
+    1px solid var(--line);
+
+    z-index:1000;
 }
 
 .logo{
-  width:42px;
-  height:42px;
-  border:1px solid rgba(201,163,91,.75);
-  display:grid;
-  place-items:center;
-  font-family:Manrope,sans-serif;
-  font-weight:800;
-  font-size:21px;
-  position:relative;
-  overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    letter-spacing:2px;
 }
 
-.logo:after{
-  content:"";
-  position:absolute;
-  inset:-60%;
-  background:linear-gradient(
-    120deg,
-    transparent 35%,
-    rgba(255,240,180,.7) 50%,
-    transparent 65%
-  );
-  animation:shine 5s infinite;
-}
+.logo-box{
+    width:30px;
+    height:30px;
 
-.logo span{
-  position:relative;
-  z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--accent);
+
+    color:var(--accent);
+
+    font-size:16px;
 }
 
 .nav-links{
-  display:flex;
-  gap:30px;
-  align-items:center;
+    display:flex;
+    align-items:center;
+    gap:28px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:var(--muted);
 }
 
 .nav-links a{
-  font-size:11px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#aaa69d;
-  transition:.3s;
+    transition:.25s;
 }
 
 .nav-links a:hover{
-  color:var(--gold2);
+    color:var(--accent);
 }
 
-.nav-contact{
-  border:1px solid rgba(201,163,91,.45);
-  padding:12px 16px;
-  color:var(--gold2)!important;
-}
-
-/* HERO */
+/* ========================================
+   HERO
+======================================== */
 
 .hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
-  overflow:hidden;
-  padding:150px 0 70px;
-  background:
-    radial-gradient(circle at 72% 36%,rgba(201,163,91,.13),transparent 25%),
-    radial-gradient(circle at 20% 80%,rgba(255,255,255,.025),transparent 30%),
-    var(--bg);
-}
+    min-height:100vh;
 
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:90px 90px;
-  mask-image:linear-gradient(to bottom,black,transparent 90%);
+    display:flex;
+    align-items:center;
+
+    padding:
+    150px 8%
+    100px;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
 .hero-glow{
-  position:absolute;
-  width:520px;
-  height:520px;
-  right:-120px;
-  top:100px;
-  border-radius:50%;
-  background:rgba(201,163,91,.10);
-  filter:blur(100px);
+    position:absolute;
+
+    width:900px;
+    height:900px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(208,107,66,.22),
+        transparent 65%
+    );
+
+    right:-300px;
+    top:-250px;
+
+    pointer-events:none;
 }
 
 .hero-content{
-  position:relative;
-  z-index:2;
-  width:min(calc(100% - 48px),var(--max));
-  margin:auto;
+    max-width:1100px;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .eyebrow{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  color:var(--gold2);
-  font-size:10px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  margin-bottom:28px;
-}
+    font-size:10px;
 
-.eyebrow:before{
-  content:"";
-  width:38px;
-  height:1px;
-  background:var(--gold);
+    letter-spacing:4px;
+
+    color:var(--accent);
+
+    margin-bottom:28px;
 }
 
 .hero h1{
-  max-width:1050px;
-  font-family:Manrope,sans-serif;
-  font-size:clamp(52px,9vw,132px);
-  line-height:.88;
-  letter-spacing:-.075em;
-  font-weight:700;
-  text-transform:uppercase;
-}
+    font-size:
+    clamp(
+        65px,
+        11vw,
+        180px
+    );
 
-.hero h1 span{
-  display:block;
-}
+    font-weight:500;
 
-.hero h1 .outline{
-  color:transparent;
-  -webkit-text-stroke:1px rgba(244,240,232,.5);
-}
+    line-height:.82;
 
-.hero-bottom{
-  margin-top:55px;
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:40px;
-  align-items:end;
+    letter-spacing:-7px;
+
+    margin-bottom:40px;
 }
 
 .hero-description{
-  max-width:570px;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:14px;
+    max-width:620px;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:
+    17px
+    25px;
+
+    border:
+    1px solid var(--accent);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    transition:.3s;
+
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:var(--accent);
+    color:#080808;
+}
+
+.btn-fill{
+    background:var(--accent);
+    color:#080808;
+}
+
+.btn-fill:hover{
+    background:transparent;
+    color:var(--text);
 }
 
 .hero-index{
-  text-align:right;
-  color:#6f6c65;
-  font-size:10px;
-  letter-spacing:.18em;
-  line-height:2;
+    position:absolute;
+
+    bottom:45px;
+    left:8%;
+
+    display:flex;
+
+    gap:25px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#666;
 }
 
-/* MARQUEE */
-
-.marquee{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  overflow:hidden;
-  white-space:nowrap;
-}
-
-.marquee-track{
-  display:inline-flex;
-  gap:42px;
-  padding:18px 0;
-  animation:marquee 24s linear infinite;
-}
-
-.marquee span{
-  font-family:Manrope,sans-serif;
-  font-size:11px;
-  letter-spacing:.24em;
-  color:#77736b;
-}
-
-.marquee .dot{
-  color:var(--gold);
-}
-
-/* GENERAL */
+/* ========================================
+   SECTIONS
+======================================== */
 
 section{
-  position:relative;
+    border-top:
+    1px solid var(--line);
 }
 
 .section{
-  padding:145px 0;
+    padding:
+    130px 8%;
 }
 
 .section-label{
-  font-size:10px;
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--gold2);
-  margin-bottom:25px;
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--accent);
+
+    margin-bottom:30px;
 }
 
 .section-title{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(38px,6vw,82px);
-  line-height:.95;
-  letter-spacing:-.055em;
-  text-transform:uppercase;
-  max-width:900px;
+    font-size:
+    clamp(
+        45px,
+        7vw,
+        105px
+    );
+
+    font-weight:500;
+
+    line-height:.9;
+
+    letter-spacing:-4px;
+
+    margin-bottom:45px;
 }
 
-.section-copy{
-  color:var(--muted);
-  line-height:1.85;
-  max-width:650px;
-  font-size:14px;
+.section-text{
+    max-width:750px;
+
+    color:var(--muted);
+
+    font-size:17px;
+
+    line-height:1.8;
 }
 
-/* ABOUT */
+/* ========================================
+   ABOUT
+======================================== */
 
 .about-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:90px;
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:80px;
+
+    align-items:end;
 }
 
-.about-right{
-  padding-top:100px;
+.about-index{
+    color:#555;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    margin-top:60px;
 }
 
-.about-line{
-  border-top:1px solid var(--line);
-  padding:20px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:#aaa69d;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
+/* ========================================
+   ECOSYSTEM
+======================================== */
+
+.ecosystem-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    margin-top:70px;
+
+    border-top:
+    1px solid var(--line);
+
+    border-left:
+    1px solid var(--line);
 }
 
-.about-line strong{
-  color:var(--gold2);
-  font-weight:500;
+.ecosystem-card{
+    min-height:280px;
+
+    padding:35px;
+
+    border-right:
+    1px solid var(--line);
+
+    border-bottom:
+    1px solid var(--line);
+
+    transition:.3s;
 }
 
-/* ECOSYSTEM */
-
-.ecosystem{
-  background:#0a0a0a;
+.ecosystem-card:hover{
+    background:#101010;
 }
 
-.eco-list{
-  margin-top:75px;
-  border-top:1px solid var(--line);
+.ecosystem-number{
+    font-size:10px;
+
+    color:var(--accent);
+
+    letter-spacing:3px;
+
+    margin-bottom:70px;
 }
 
-.eco-row{
-  display:grid;
-  grid-template-columns:100px 1fr 1.2fr;
-  gap:35px;
-  align-items:center;
-  padding:32px 0;
-  border-bottom:1px solid var(--line);
-  transition:.35s;
+.ecosystem-card h3{
+    font-size:23px;
+
+    font-weight:400;
+
+    margin-bottom:18px;
 }
 
-.eco-row:hover{
-  padding-left:18px;
-  background:linear-gradient(90deg,rgba(201,163,91,.05),transparent);
+.ecosystem-card p{
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.7;
 }
 
-.eco-num{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:.15em;
-}
-
-.eco-name{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(25px,3vw,42px);
-  text-transform:uppercase;
-  letter-spacing:-.04em;
-}
-
-.eco-desc{
-  color:#77746e;
-  font-size:13px;
-  line-height:1.7;
-}
-
-/* PROJECT */
-
-.project-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:40px;
-  margin-bottom:60px;
-}
-
-.project-meta{
-  text-align:right;
-  color:#79756d;
-  font-size:10px;
-  line-height:2;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.project-meta strong{
-  color:var(--gold2);
-  font-weight:500;
-}
-
-.project-visual{
-  border:1px solid rgba(201,163,91,.28);
-  background:#050505;
-  overflow:hidden;
-  position:relative;
-}
-
-.project-visual:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    110deg,
-    transparent 20%,
-    rgba(255,255,255,.025) 45%,
-    transparent 70%
-  );
-  pointer-events:none;
-}
-
-.project-svg{
-  width:100%;
-  display:block;
-}
-
-.project-info{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  margin-top:55px;
-}
-
-.project-info h3{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(28px,4vw,52px);
-  text-transform:uppercase;
-  letter-spacing:-.045em;
-}
-
-.project-info p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.85;
-}
-
-.project-details{
-  margin-top:35px;
-  border-top:1px solid var(--line);
-}
-
-.detail{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 0;
-  border-bottom:1px solid var(--line);
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-}
-
-.detail span:first-child{
-  color:#68655f;
-}
-
-.detail span:last-child{
-  color:#d6d0c4;
-}
-
-/* STRATEGY */
-
-.strategy{
-  background:#0a0a0a;
-}
+/* ========================================
+   STRATEGY
+======================================== */
 
 .strategy-grid{
-  margin-top:75px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-left:1px solid var(--line);
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:50px;
+
+    margin-top:70px;
 }
 
-.strategy-card{
-  min-height:330px;
-  padding:32px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  transition:.35s;
+.strategy-item{
+    border-top:
+    1px solid var(--accent);
+
+    padding-top:25px;
 }
 
-.strategy-card:hover{
-  background:rgba(201,163,91,.035);
+.strategy-number{
+    font-size:10px;
+
+    color:var(--accent);
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
 }
 
-.strategy-card .num{
-  color:var(--gold);
-  font-size:10px;
-  letter-spacing:.2em;
+.strategy-item h3{
+    font-size:32px;
+
+    font-weight:400;
+
+    margin-bottom:20px;
 }
 
-.strategy-card h3{
-  font-family:Manrope,sans-serif;
-  font-size:34px;
-  text-transform:uppercase;
-  letter-spacing:-.04em;
+.strategy-item p{
+    color:#777;
+
+    line-height:1.7;
 }
 
-.strategy-card p{
-  color:#77746e;
-  font-size:13px;
-  line-height:1.7;
+/* ========================================
+   PROJECT HERO
+======================================== */
+
+.project-section{
+    position:relative;
+
+    background:#0d0d0d;
+
+    overflow:hidden;
 }
 
-/* FOUNDER */
+.project-section::before{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(208,107,66,.16),
+        transparent 70%
+    );
+
+    right:-250px;
+    top:100px;
+}
+
+.project-content{
+    position:relative;
+
+    z-index:2;
+}
+
+.project-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:50px;
+
+    margin-bottom:80px;
+}
+
+.project-status{
+    border:
+    1px solid var(--accent);
+
+    padding:
+    10px
+    15px;
+
+    color:var(--accent);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    white-space:nowrap;
+}
+
+.project-name{
+    font-size:
+    clamp(
+        65px,
+        10vw,
+        150px
+    );
+
+    font-weight:500;
+
+    line-height:.8;
+
+    letter-spacing:-6px;
+
+    margin-bottom:35px;
+}
+
+.project-description{
+    max-width:700px;
+
+    color:#999;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+/* ========================================
+   PROJECT INFO
+======================================== */
+
+.project-info-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:1px;
+
+    background:var(--line);
+
+    margin-top:70px;
+}
+
+.project-info-card{
+    background:#0b0b0b;
+
+    padding:40px;
+
+    min-height:230px;
+}
+
+.project-info-number{
+    color:var(--accent);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    margin-bottom:40px;
+}
+
+.project-info-card h3{
+    font-size:25px;
+
+    font-weight:400;
+
+    margin-bottom:15px;
+}
+
+.project-info-card p{
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+/* ========================================
+   TIMELINE
+======================================== */
+
+.timeline-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:40px;
+
+    margin-top:70px;
+}
+
+.timeline-item{
+    border-top:
+    1px solid var(--accent);
+
+    padding-top:25px;
+}
+
+.timeline-month{
+    color:var(--accent);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    margin-bottom:20px;
+}
+
+.timeline-item h3{
+    font-size:28px;
+
+    font-weight:400;
+
+    margin-bottom:15px;
+}
+
+.timeline-item p{
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+/* ========================================
+   INVESTMENT
+======================================== */
+
+.investment{
+    background:var(--accent);
+
+    color:#080808;
+}
+
+.investment .section-label{
+    color:#4c2112;
+}
+
+.investment-description{
+    max-width:750px;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    opacity:.72;
+}
+
+.investment-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:1px;
+
+    background:
+    rgba(0,0,0,.25);
+
+    margin-top:70px;
+}
+
+.investment-card{
+    padding:45px;
+
+    min-height:240px;
+
+    background:
+    rgba(0,0,0,.05);
+}
+
+.investment-card small{
+    display:block;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:40px;
+}
+
+.investment-card h3{
+    font-size:
+    clamp(
+        35px,
+        5vw,
+        60px
+    );
+
+    font-weight:500;
+
+    margin-bottom:15px;
+}
+
+.investment-card p{
+    font-size:14px;
+
+    opacity:.65;
+
+    line-height:1.7;
+}
+
+.investment-note{
+    max-width:900px;
+
+    margin-top:40px;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    opacity:.7;
+}
+
+/* ========================================
+   INVESTMENT UNITS
+======================================== */
+
+.units-section{
+    background:#0b0b0b;
+}
+
+.units-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:30px;
+
+    margin-bottom:60px;
+}
+
+.units-subtext{
+    max-width:400px;
+
+    color:#777;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+.units-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:1px;
+
+    background:var(--line);
+
+    border:
+    1px solid var(--line);
+}
+
+.unit{
+    background:#0d0d0d;
+
+    padding:28px;
+
+    min-height:150px;
+
+    transition:.25s;
+}
+
+.unit:hover{
+    background:#151515;
+}
+
+.unit-number{
+    color:#888;
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    margin-bottom:35px;
+}
+
+.unit-status{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#8c8c8c;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+}
+
+/* ========================================
+   PARTNERSHIP
+======================================== */
+
+.partnership-box{
+    border:
+    1px solid var(--line);
+
+    padding:65px;
+
+    margin-top:60px;
+
+    background:#0b0b0b;
+}
+
+.partnership-box h3{
+    font-size:
+    clamp(
+        30px,
+        4vw,
+        55px
+    );
+
+    font-weight:400;
+
+    line-height:1;
+
+    margin-bottom:30px;
+}
+
+.partnership-box p{
+    max-width:700px;
+
+    color:#777;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+}
+
+/* ========================================
+   FORM
+======================================== */
+
+.form-section{
+    background:#101010;
+}
+
+.form-wrap{
+    max-width:800px;
+}
+
+.form-wrap form{
+    margin-top:50px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    background:#090909;
+
+    color:#fff;
+
+    border:
+    1px solid #292929;
+
+    padding:19px;
+
+    margin-bottom:15px;
+
+    outline:none;
+
+    font-size:13px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--accent);
+}
+
+textarea{
+    min-height:160px;
+
+    resize:vertical;
+}
+
+.submit-btn{
+    border:none;
+
+    background:var(--accent);
+
+    color:#080808;
+
+    padding:
+    19px
+    30px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.submit-btn:hover{
+    opacity:.8;
+}
+
+.disclaimer{
+    max-width:800px;
+
+    color:#666;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    margin-top:35px;
+}
+
+/* ========================================
+   FOUNDER
+======================================== */
+
+.founder{
+    background:#090909;
+}
 
 .founder-grid{
-  display:grid;
-  grid-template-columns:.75fr 1.25fr;
-  gap:100px;
-  align-items:center;
-}
+    display:grid;
 
-.founder-mark{
-  aspect-ratio:1;
-  border:1px solid rgba(201,163,91,.3);
-  display:grid;
-  place-items:center;
-  position:relative;
-  background:
-    radial-gradient(circle,rgba(201,163,91,.12),transparent 55%),
-    #090909;
-}
+    grid-template-columns:
+    1fr 1fr;
 
-.founder-mark:before,
-.founder-mark:after{
-  content:"";
-  position:absolute;
-  inset:13%;
-  border:1px solid rgba(201,163,91,.14);
-}
+    gap:80px;
 
-.founder-mark:after{
-  inset:25%;
-}
-
-.big-f{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(130px,18vw,260px);
-  line-height:1;
-  font-weight:800;
-}
-
-.founder-role{
-  margin-top:22px;
-  color:var(--gold2);
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+    align-items:center;
 }
 
 .founder-name{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(48px,7vw,96px);
-  line-height:.95;
-  letter-spacing:-.06em;
-  text-transform:uppercase;
-  margin-bottom:35px;
+    font-size:
+    clamp(
+        45px,
+        7vw,
+        100px
+    );
+
+    font-weight:400;
+
+    letter-spacing:-4px;
+
+    line-height:.9;
+
+    margin-bottom:30px;
 }
 
-.founder-quote{
-  border-left:2px solid var(--gold);
-  padding-left:25px;
-  font-family:Manrope,sans-serif;
-  font-size:clamp(20px,2.4vw,31px);
-  line-height:1.35;
-  color:#ddd7cb;
-  margin-bottom:35px;
+.founder-role{
+    color:var(--accent);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    margin-bottom:30px;
 }
 
 .founder-text{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.9;
-  max-width:650px;
+    color:#888;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+    max-width:600px;
 }
 
-/* VISION */
+.founder-symbol{
+    min-height:450px;
 
-.vision{
-  min-height:75vh;
-  display:flex;
-  align-items:center;
-  background:
-    radial-gradient(circle at center,rgba(201,163,91,.08),transparent 38%),
-    #080808;
-  text-align:center;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+    1px solid var(--line);
+
+    font-size:
+    clamp(
+        150px,
+        25vw,
+        350px
+    );
+
+    color:var(--accent);
+
+    font-weight:300;
+
+    background:#0c0c0c;
 }
 
-.vision .container{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.vision h2{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(50px,10vw,145px);
-  line-height:.86;
-  letter-spacing:-.075em;
-  text-transform:uppercase;
-}
-
-.vision h2 span{
-  display:block;
-}
-
-.vision-sub{
-  max-width:580px;
-  margin-top:45px;
-  color:#77746e;
-  line-height:1.8;
-  font-size:14px;
-}
-
-/* CONTACT */
+/* ========================================
+   CONTACT
+======================================== */
 
 .contact{
-  border-top:1px solid var(--line);
-}
+    background:var(--accent);
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
+    color:#080808;
 }
 
 .contact-title{
-  font-family:Manrope,sans-serif;
-  font-size:clamp(50px,8vw,110px);
-  line-height:.88;
-  letter-spacing:-.07em;
-  text-transform:uppercase;
+    font-size:
+    clamp(
+        60px,
+        12vw,
+        180px
+    );
+
+    font-weight:500;
+
+    line-height:.8;
+
+    letter-spacing:-7px;
+
+    margin-bottom:50px;
 }
 
 .contact-links{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
 }
 
-.contact-item{
-  border-top:1px solid var(--line);
-  padding:22px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:#8c8880;
-  font-size:12px;
-  transition:.3s;
+.contact-link{
+    border:
+    1px solid rgba(0,0,0,.4);
+
+    padding:
+    17px
+    22px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    transition:.25s;
 }
 
-.contact-item:hover{
-  color:var(--gold2);
+.contact-link:hover{
+    background:#080808;
+
+    color:var(--text);
 }
 
-.contact-item strong{
-  color:#e5dfd4;
-  font-weight:500;
-}
-
-/* FOOTER */
+/* ========================================
+   FOOTER
+======================================== */
 
 footer{
-  border-top:1px solid var(--line);
-  padding:28px 0;
+    padding:
+    45px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    border-top:
+    1px solid var(--line);
 }
 
-.footer-inner{
-  width:min(calc(100% - 48px),var(--max));
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  color:#5f5c57;
-  font-size:9px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
+footer p{
+    color:#666;
+
+    font-size:10px;
+
+    letter-spacing:2px;
 }
 
-/* ANIMATION */
-
-@keyframes shine{
-  0%,70%,100%{transform:translateX(-80%) rotate(25deg)}
-  85%{transform:translateX(80%) rotate(25deg)}
-}
-
-@keyframes marquee{
-  to{transform:translateX(-50%)}
-}
-
-/* RESPONSIVE */
+/* ========================================
+   MOBILE
+======================================== */
 
 @media(max-width:900px){
 
-  .nav-links{
-    display:none;
-  }
+    nav{
+        padding:0 25px;
+    }
 
-  .container,
-  .nav-inner,
-  .hero-content,
-  .footer-inner{
-    width:min(calc(100% - 30px),var(--max));
-  }
+    .nav-links{
+        display:none;
+    }
 
-  .hero{
-    padding-top:130px;
-    padding-bottom:50px;
-  }
+    .hero{
+        padding:
+        130px 25px
+        100px;
+    }
 
-  .hero h1{
-    font-size:clamp(49px,15vw,90px);
-  }
+    .section{
+        padding:
+        90px 25px;
+    }
 
-  .hero-bottom{
-    grid-template-columns:1fr;
-    gap:25px;
-  }
+    .about-grid,
+    .founder-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .hero-index{
-    text-align:left;
-  }
+    .ecosystem-grid{
+        grid-template-columns:
+        1fr 1fr;
+    }
 
-  .section{
-    padding:90px 0;
-  }
+    .strategy-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .about-grid,
-  .founder-grid,
-  .contact-grid,
-  .project-info{
-    grid-template-columns:1fr;
-    gap:50px;
-  }
+    .project-info-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .about-right{
-    padding-top:0;
-  }
+    .timeline-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .eco-row{
-    grid-template-columns:55px 1fr;
-    gap:15px;
-  }
+    .investment-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .eco-desc{
-    grid-column:2;
-  }
+    .units-grid{
+        grid-template-columns:
+        1fr 1fr;
+    }
 
-  .project-head{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+    .project-header,
+    .units-header{
+        flex-direction:column;
 
-  .project-meta{
-    text-align:left;
-  }
+        align-items:flex-start;
+    }
 
-  .strategy-grid{
-    grid-template-columns:1fr;
-  }
+    .partnership-box{
+        padding:35px 25px;
+    }
 
-  .strategy-card{
-    min-height:250px;
-  }
-
-  .founder-mark{
-    max-width:520px;
-  }
-
-  .contact-links{
-    margin-top:20px;
-  }
-
-  .footer-inner{
-    flex-direction:column;
-  }
 }
 
-@media(max-width:520px){
+@media(max-width:500px){
 
-  .nav{
-    height:68px;
-  }
+    .ecosystem-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .logo{
-    width:38px;
-    height:38px;
-  }
+    .units-grid{
+        grid-template-columns:
+        1fr;
+    }
 
-  .hero{
-    min-height:92vh;
-  }
+    .hero h1{
+        letter-spacing:-4px;
+    }
 
-  .hero h1{
-    font-size:14vw;
-  }
+    .section-title{
+        letter-spacing:-2px;
+    }
 
-  .section-title{
-    font-size:42px;
-  }
-
-  .project-info h3{
-    font-size:38px;
-  }
-
-  .founder-name{
-    font-size:47px;
-  }
-
-  .vision h2{
-    font-size:18vw;
-  }
 }
+
 </style>
+
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="logo">
-      <span class="metal">F</span>
-    </a>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#ecosystem">Ecosystem</a>
-      <a href="#projects">Projects</a>
-      <a href="#founder">Founder</a>
-      <a href="#contact" class="nav-contact">Contact ↗</a>
-    </div>
-  </div>
-</nav>
+<!-- ========================================
+NAVIGATION
+======================================== -->
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-glow"></div>
+<nav>
 
-  <div class="hero-content">
+<a href="#home" class="logo">
 
-    <div class="eyebrow">
-      Independent Development Group
-    </div>
+<span class="logo-box">F</span>
 
-    <h1>
-      <span>Building</span>
-      <span class="outline">Ideas.</span>
-      <span>Developing</span>
-      <span class="metal">Futures.</span>
-    </h1>
+FENRIX DEVELOPMENT
 
-    <div class="hero-bottom">
-      <p class="hero-description">
-        FENRIX DEVELOPMENT is an independent development group focused on
-        building brands, businesses and long-term opportunities from Vietnam
-        with a global direction.
-      </p>
+</a>
 
-      <div class="hero-index">
-        EST. 2026<br>
-        VIETNAM<br>
-        GLOBAL DIRECTION
-      </div>
-    </div>
 
-  </div>
-</header>
+<div class="nav-links">
 
-<!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span>BUILD</span><span class="dot">●</span>
-    <span>DEVELOP</span><span class="dot">●</span>
-    <span>EXPAND</span><span class="dot">●</span>
-    <span>CREATE</span><span class="dot">●</span>
-    <span>INVEST</span><span class="dot">●</span>
-    <span>BUILD</span><span class="dot">●</span>
-    <span>DEVELOP</span><span class="dot">●</span>
-    <span>EXPAND</span><span class="dot">●</span>
-    <span>CREATE</span><span class="dot">●</span>
-    <span>INVEST</span><span class="dot">●</span>
-  </div>
+<a href="#about">ABOUT</a>
+
+<a href="#ecosystem">ECOSYSTEM</a>
+
+<a href="#project">PROJECT</a>
+
+<a href="#investment">INVEST</a>
+
+<a href="#contact">CONTACT ↗</a>
+
 </div>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="container">
-
-    <div class="about-grid">
-
-      <div>
-        <div class="section-label">01 / About</div>
-
-        <h2 class="section-title">
-          From one idea<br>
-          to an ecosystem.
-        </h2>
-      </div>
-
-      <div class="about-right">
-
-        <p class="section-copy">
-          FENRIX DEVELOPMENT was created with a simple ambition:
-          build businesses with identity, develop them with discipline,
-          and create systems that can grow beyond a single location.
-        </p>
-
-        <div style="height:55px"></div>
-
-        <div class="about-line">
-          <span>Foundation</span>
-          <strong>Vietnam</strong>
-        </div>
-
-        <div class="about-line">
-          <span>Direction</span>
-          <strong>Global</strong>
-        </div>
-
-        <div class="about-line">
-          <span>Focus</span>
-          <strong>Long Term</strong>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ECOSYSTEM -->
-<section class="section ecosystem" id="ecosystem">
-  <div class="container">
-
-    <div class="section-label">02 / Ecosystem</div>
-
-    <h2 class="section-title">
-      Four directions.<br>
-      One system.
-    </h2>
-
-    <div class="eco-list">
-
-      <div class="eco-row">
-        <div class="eco-num">01</div>
-        <div class="eco-name">Hospitality</div>
-        <div class="eco-desc">
-          Restaurant, food, beverage and hospitality concepts
-          designed around identity and scalable operations.
-        </div>
-      </div>
-
-      <div class="eco-row">
-        <div class="eco-num">02</div>
-        <div class="eco-name">Creative</div>
-        <div class="eco-desc">
-          Brand identity, visual direction and creative systems
-          that turn concepts into recognizable businesses.
-        </div>
-      </div>
-
-      <div class="eco-row">
-        <div class="eco-num">03</div>
-        <div class="eco-name">Digital</div>
-        <div class="eco-desc">
-          Digital products, platforms and infrastructure
-          connecting brands with new opportunities.
-        </div>
-      </div>
-
-      <div class="eco-row">
-        <div class="eco-num">04</div>
-        <div class="eco-name">Investment</div>
-        <div class="eco-desc">
-          Capital, partnerships and strategic development
-          for businesses with long-term potential.
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECT -->
-<section class="section" id="projects">
-  <div class="container">
-
-    <div class="project-head">
-
-      <div>
-        <div class="section-label">03 / Active Development</div>
-
-        <h2 class="section-title">
-          Project / 001
-        </h2>
-      </div>
-
-      <div class="project-meta">
-        <strong>IN DEVELOPMENT</strong><br>
-        FENRIX HOSPITALITY<br>
-        HANOI · VIETNAM
-      </div>
-
-    </div>
-
-    <div class="project-visual">
-
-      <!-- ARCHITECTURAL CONCEPT -->
-      <svg class="project-svg"
-           viewBox="0 0 1400 780"
-           xmlns="http://www.w3.org/2000/svg">
-
-        <defs>
-
-          <linearGradient id="goldMetal"
-                  x1="0" y1="0"
-                  x2="1" y2="1">
-            <stop offset="0%" stop-color="#6f501d"/>
-            <stop offset="20%" stop-color="#d6b76e"/>
-            <stop offset="40%" stop-color="#fff0ad"/>
-            <stop offset="60%" stop-color="#a77932"/>
-            <stop offset="80%" stop-color="#efd18a"/>
-            <stop offset="100%" stop-color="#70501d"/>
-          </linearGradient>
-
-          <linearGradient id="glass"
-                  x1="0" y1="0"
-                  x2="0" y2="1">
-            <stop offset="0%" stop-color="#151515"/>
-            <stop offset="100%" stop-color="#050505"/>
-          </linearGradient>
-
-          <radialGradient id="light">
-            <stop offset="0%" stop-color="#f0cf82" stop-opacity=".34"/>
-            <stop offset="100%" stop-color="#f0cf82" stop-opacity="0"/>
-          </radialGradient>
-
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="12"/>
-          </filter>
-
-        </defs>
-
-        <!-- BACKGROUND -->
-        <rect width="1400" height="780" fill="#030303"/>
-
-        <circle cx="1100" cy="230"
-                r="260"
-                fill="url(#light)"
-                filter="url(#glow)"/>
-
-        <!-- CITY GRID -->
-        <g opacity=".13" stroke="#9a7b42" stroke-width="1">
-          <path d="M0 650H1400"/>
-          <path d="M0 700H1400"/>
-          <path d="M0 750H1400"/>
-          <path d="M150 0V780"/>
-          <path d="M300 0V780"/>
-          <path d="M450 0V780"/>
-          <path d="M600 0V780"/>
-          <path d="M750 0V780"/>
-          <path d="M900 0V780"/>
-          <path d="M1050 0V780"/>
-          <path d="M1200 0V780"/>
-          <path d="M1350 0V780"/>
-        </g>
-
-        <!-- BUILDING SHADOW -->
-        <rect x="145"
-              y="150"
-              width="1110"
-              height="520"
-              fill="#080808"
-              stroke="#29251e"
-              stroke-width="2"/>
-
-        <!-- GOLD ARCHITECTURAL FRAME -->
-        <rect x="175"
-              y="180"
-              width="1050"
-              height="465"
-              fill="none"
-              stroke="url(#goldMetal)"
-              stroke-width="5"/>
-
-        <!-- TOP HEADER -->
-        <rect x="205"
-              y="205"
-              width="990"
-              height="100"
-              fill="#0c0c0c"
-              stroke="#755728"
-              stroke-width="1"/>
-
-        <text x="235"
-              y="242"
-              fill="#b99550"
-              font-size="13"
-              font-family="Arial"
-              letter-spacing="5">
-          FENRIX PROJECT / 001
-        </text>
-
-        <text x="700"
-              y="283"
-              text-anchor="middle"
-              fill="url(#goldMetal)"
-              font-size="48"
-              font-weight="700"
-              font-family="Arial"
-              letter-spacing="5">
-          BÚN MỌC TÂY HỒ
-        </text>
-
-        <!-- STOREFRONT -->
-        <rect x="205"
-              y="330"
-              width="990"
-              height="275"
-              fill="url(#glass)"
-              stroke="#4d3a20"
-              stroke-width="2"/>
-
-        <!-- LEFT WINDOW -->
-        <rect x="230"
-              y="355"
-              width="265"
-              height="215"
-              fill="#101010"
-              stroke="#70552c"/>
-
-        <!-- RIGHT WINDOW -->
-        <rect x="905"
-              y="355"
-              width="265"
-              height="215"
-              fill="#101010"
-              stroke="#70552c"/>
-
-        <!-- CENTER DOOR -->
-        <rect x="535"
-              y="350"
-              width="330"
-              height="255"
-              fill="#0b0b0b"
-              stroke="url(#goldMetal)"
-              stroke-width="3"/>
-
-        <line x1="700"
-              y1="350"
-              x2="700"
-              y2="605"
-              stroke="#614921"
-              stroke-width="2"/>
-
-        <!-- WARM INTERIOR -->
-        <rect x="555"
-              y="375"
-              width="290"
-              height="205"
-              fill="#17120b"/>
-
-        <circle cx="700"
-                cy="470"
-                r="95"
-                fill="url(#light)"
-                opacity=".55"/>
-
-        <!-- TABLES -->
-        <g stroke="#8d6b34"
-           fill="none"
-           stroke-width="2"
-           opacity=".75">
-
-          <ellipse cx="620" cy="505"
-                   rx="42" ry="16"/>
-
-          <ellipse cx="780" cy="505"
-                   rx="42" ry="16"/>
-
-          <path d="M620 505V550"/>
-          <path d="M780 505V550"/>
-
-        </g>
-
-        <!-- BOWL ICON -->
-        <path d="M645 430
-                 Q700 470 755 430
-                 L745 458
-                 Q700 490 655 458Z"
-              fill="none"
-              stroke="url(#goldMetal)"
-              stroke-width="4"/>
-
-        <path d="M668 416 Q660 395 672 382"
-              fill="none"
-              stroke="#d6b76e"
-              stroke-width="3"/>
-
-        <path d="M700 414 Q693 390 705 376"
-              fill="none"
-              stroke="#d6b76e"
-              stroke-width="3"/>
-
-        <path d="M732 416 Q725 395 737 382"
-              fill="none"
-              stroke="#d6b76e"
-              stroke-width="3"/>
-
-        <!-- SIDE DECOR -->
-        <g fill="none"
-           stroke="#92713b"
-           opacity=".7">
-
-          <path d="M270 530
-                   Q290 470 310 530
-                   Q330 470 350 530
-                   Q370 470 390 530"/>
-
-          <path d="M1010 530
-                   Q1030 470 1050 530
-                   Q1070 470 1090 530
-                   Q1110 470 1130 530"/>
-
-        </g>
-
-        <!-- SIDE LABELS -->
-        <text x="250"
-              y="385"
-              fill="#8e7444"
-              font-size="10"
-              font-family="Arial"
-              letter-spacing="3">
-          HANOI
-        </text>
-
-        <text x="925"
-              y="385"
-              fill="#8e7444"
-              font-size="10"
-              font-family="Arial"
-              letter-spacing="3">
-          HOSPITALITY
-        </text>
-
-        <!-- BASE -->
-        <rect x="175"
-              y="645"
-              width="1050"
-              height="15"
-              fill="url(#goldMetal)"/>
-
-        <!-- LOCATION -->
-        <text x="700"
-              y="705"
-              text-anchor="middle"
-              fill="#8d887e"
-              font-size="12"
-              font-family="Arial"
-              letter-spacing="5">
-          TÂY HỒ · HANOI · VIETNAM
-        </text>
-
-        <text x="700"
-              y="740"
-              text-anchor="middle"
-              fill="#4e4a44"
-              font-size="9"
-              font-family="Arial"
-              letter-spacing="4">
-          THE FIRST BEGINNING
-        </text>
-
-      </svg>
-
-    </div>
-
-    <div class="project-info">
-
-      <div>
-
-        <div class="section-label">
-          Hospitality / 001
-        </div>
-
-        <h3>
-          The first<br>
-          beginning.
-        </h3>
-
-      </div>
-
-      <div>
-
-        <p>
-          Bún Mọc Tây Hồ is the first hospitality concept developed
-          under FENRIX DEVELOPMENT. It represents the beginning of a
-          larger system built around food, identity, experience and
-          scalable business development.
-        </p>
-
-        <div class="project-details">
-
-          <div class="detail">
-            <span>Location</span>
-            <span>Tây Hồ · Hanoi</span>
-          </div>
-
-          <div class="detail">
-            <span>Project</span>
-            <span>FENRIX / 001</span>
-          </div>
-
-          <div class="detail">
-            <span>Sector</span>
-            <span>Hospitality</span>
-          </div>
-
-          <div class="detail">
-            <span>Status</span>
-            <span>In Development</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- STRATEGY -->
-<section class="section strategy">
-  <div class="container">
-
-    <div class="section-label">04 / Development Strategy</div>
-
-    <h2 class="section-title">
-      Build.<br>
-      Develop.<br>
-      Expand.
-    </h2>
-
-    <div class="strategy-grid">
-
-      <div class="strategy-card">
-        <div class="num">01 / CREATE</div>
-
-        <h3>Create</h3>
-
-        <p>
-          Identify opportunities, build concepts and establish
-          distinctive brands with a clear reason to exist.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <div class="num">02 / DEVELOP</div>
-
-        <h3>Develop</h3>
-
-        <p>
-          Turn ideas into operating businesses through systems,
-          people, technology and disciplined execution.
-        </p>
-      </div>
-
-      <div class="strategy-card">
-        <div class="num">03 / EXPAND</div>
-
-        <h3>Expand</h3>
-
-        <p>
-          Scale successful concepts into new locations, new
-          markets, new partnerships and new opportunities.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="section" id="founder">
-  <div class="container">
-
-    <div class="founder-grid">
-
-      <div class="founder-mark">
-
-        <div class="big-f metal">F</div>
-
-      </div>
-
-      <div>
-
-        <div class="section-label">
-          05 / Founder
-        </div>
-
-        <h2 class="founder-name">
-          Đoàn<br>
-          Ngọc Ánh
-        </h2>
-
-        <div class="founder-role">
-          Founder · FENRIX DEVELOPMENT
-        </div>
-
-        <div style="height:38px"></div>
-
-        <div class="founder-quote">
-          “I believe a business should not exist only to make money.
-          It should create identity, opportunity and something that
-          can continue to grow beyond the person who started it.”
-        </div>
-
-        <p class="founder-text">
-          FENRIX begins with the ambition to build from Vietnam,
-          think beyond Vietnam and create businesses with a future.
-          The first project may begin with one location, but the
-          vision is to build an ecosystem.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- VISION -->
-<section class="section vision">
-
-  <div class="container">
-
-    <div class="section-label">
-      06 / Vision
-    </div>
-
-    <h2>
-      <span>Not just</span>
-      <span class="metal">a company.</span>
-      <span>A system.</span>
-    </h2>
-
-    <p class="vision-sub">
-      FENRIX DEVELOPMENT is built to connect ideas, businesses,
-      people and capital into a system capable of creating
-      long-term value.
-    </p>
-
-  </div>
+</nav>
+
+
+
+<!-- ========================================
+HERO
+======================================== -->
+
+<section id="home" class="hero">
+
+<div class="hero-glow"></div>
+
+
+<div class="hero-content">
+
+<div class="eyebrow">
+
+INDEPENDENT DEVELOPMENT GROUP
+
+</div>
+
+
+<h1>
+
+BUILDING<br>
+IDEAS.<br>
+DEVELOPING<br>
+FUTURES.
+
+</h1>
+
+
+<p class="hero-description">
+
+FENRIX DEVELOPMENT là một nhóm phát triển độc lập
+tập trung vào việc xây dựng thương hiệu,
+phát triển doanh nghiệp và tạo ra những cơ hội
+có giá trị dài hạn.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a href="#project" class="btn btn-fill">
+
+EXPLORE PROJECTS ↘
+
+</a>
+
+
+<a href="#about" class="btn">
+
+ABOUT FENRIX
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-index">
+
+<span>EST. 2026</span>
+
+<span>VIETNAM</span>
+
+<span>GLOBAL DIRECTION</span>
+
+</div>
 
 </section>
 
-<!-- CONTACT -->
-<section class="section contact" id="contact">
 
-  <div class="container">
 
-    <div class="contact-grid">
+<!-- ========================================
+ABOUT
+======================================== -->
 
-      <div>
+<section id="about">
 
-        <div class="section-label">
-          07 / Contact
-        </div>
+<div class="section about-grid">
 
-        <h2 class="contact-title">
-          Let's<br>
-          build<br>
-          <span class="metal">future.</span>
-        </h2>
+<div>
 
-      </div>
+<div class="section-label">
 
-      <div class="contact-links">
+ABOUT FENRIX
 
-        <a class="contact-item"
-           href="tel:+84973344387">
-          <span>Phone</span>
-          <strong>+84 973 344 387 ↗</strong>
-        </a>
+</div>
 
-        <a class="contact-item"
-           href="mailto:dnabookingvn@gmail.com">
-          <span>Email</span>
-          <strong>dnabookingvn@gmail.com ↗</strong>
-        </a>
 
-        <div class="contact-item">
-          <span>Based</span>
-          <strong>Hanoi · Vietnam</strong>
-        </div>
+<h2 class="section-title">
 
-        <div class="contact-item">
-          <span>Direction</span>
-          <strong>Global</strong>
-        </div>
+FROM ONE IDEA<br>
+TO AN ECOSYSTEM.
 
-      </div>
+</h2>
 
-    </div>
+</div>
 
-  </div>
+
+<div>
+
+<p class="section-text">
+
+FENRIX DEVELOPMENT được xây dựng với định hướng
+phát triển những ý tưởng thành thương hiệu,
+mô hình kinh doanh và hệ sinh thái có khả năng
+mở rộng trong dài hạn.
+
+Chúng tôi tập trung vào quá trình tạo ra,
+phát triển và mở rộng các dự án trong nhiều lĩnh vực,
+bắt đầu từ những nền tảng có giá trị thực tế.
+
+</p>
+
+
+<div class="about-index">
+
+BUILD / DEVELOP / EXPAND / CREATE / INVEST
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- FOOTER -->
+
+
+<!-- ========================================
+ECOSYSTEM
+======================================== -->
+
+<section id="ecosystem">
+
+<div class="section">
+
+<div class="section-label">
+
+FENRIX ECOSYSTEM
+
+</div>
+
+
+<h2 class="section-title">
+
+BUILDING<br>
+ACROSS IDEAS.
+
+</h2>
+
+
+<div class="ecosystem-grid">
+
+
+<div class="ecosystem-card">
+
+<div class="ecosystem-number">
+
+01
+
+</div>
+
+<h3>
+
+HOSPITALITY
+
+</h3>
+
+<p>
+
+Phát triển các mô hình
+nhà hàng, thực phẩm,
+đồ uống và hospitality concepts.
+
+</p>
+
+</div>
+
+
+
+<div class="ecosystem-card">
+
+<div class="ecosystem-number">
+
+02
+
+</div>
+
+<h3>
+
+CREATIVE
+
+</h3>
+
+<p>
+
+Xây dựng ý tưởng,
+thương hiệu và các dự án
+sáng tạo.
+
+</p>
+
+</div>
+
+
+
+<div class="ecosystem-card">
+
+<div class="ecosystem-number">
+
+03
+
+</div>
+
+<h3>
+
+DIGITAL
+
+</h3>
+
+<p>
+
+Phát triển nền tảng số,
+website và các sản phẩm
+trong môi trường digital.
+
+</p>
+
+</div>
+
+
+
+<div class="ecosystem-card">
+
+<div class="ecosystem-number">
+
+04
+
+</div>
+
+<h3>
+
+INVESTMENT
+
+</h3>
+
+<p>
+
+Tìm kiếm và phát triển
+những cơ hội hợp tác
+và đầu tư dài hạn.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+STRATEGY
+======================================== -->
+
+<section>
+
+<div class="section">
+
+<div class="section-label">
+
+DEVELOPMENT STRATEGY
+
+</div>
+
+
+<h2 class="section-title">
+
+BUILD.<br>
+DEVELOP.<br>
+EXPAND.
+
+</h2>
+
+
+<div class="strategy-grid">
+
+
+<div class="strategy-item">
+
+<div class="strategy-number">
+
+01 / CREATE
+
+</div>
+
+<h3>
+
+CREATE
+
+</h3>
+
+<p>
+
+Tìm kiếm ý tưởng,
+xây dựng mô hình
+và tạo nền tảng
+cho một dự án mới.
+
+</p>
+
+</div>
+
+
+
+<div class="strategy-item">
+
+<div class="strategy-number">
+
+02 / DEVELOP
+
+</div>
+
+<h3>
+
+DEVELOP
+
+</h3>
+
+<p>
+
+Hoàn thiện thương hiệu,
+mô hình vận hành
+và chiến lược phát triển.
+
+</p>
+
+</div>
+
+
+
+<div class="strategy-item">
+
+<div class="strategy-number">
+
+03 / EXPAND
+
+</div>
+
+<h3>
+
+EXPAND
+
+</h3>
+
+<p>
+
+Mở rộng quy mô,
+phát triển hệ thống
+và xây dựng giá trị
+dài hạn.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+PROJECT 001
+======================================== -->
+
+<section id="project" class="project-section">
+
+<div class="section project-content">
+
+
+<div class="project-header">
+
+<div>
+
+<div class="section-label">
+
+FENRIX PROJECT / 001
+
+</div>
+
+</div>
+
+
+<div class="project-status">
+
+IN DEVELOPMENT
+
+</div>
+
+</div>
+
+
+<h2 class="project-name">
+
+HƯƠNG<br>
+XƯA.
+
+</h2>
+
+
+<p class="project-description">
+
+Dự án hospitality đầu tiên thuộc FENRIX DEVELOPMENT.
+
+HƯƠNG XƯA hướng tới việc xây dựng một thương hiệu
+ẩm thực mang tinh thần Hà Nội,
+kết hợp giữa giá trị truyền thống
+và mô hình phát triển hiện đại.
+
+Đây là điểm khởi đầu cho định hướng phát triển
+các thương hiệu hospitality của FENRIX.
+
+</p>
+
+
+<div class="project-info-grid">
+
+
+<div class="project-info-card">
+
+<div class="project-info-number">
+
+01
+
+</div>
+
+<h3>
+
+HOSPITALITY
+
+</h3>
+
+<p>
+
+Phát triển mô hình
+ẩm thực và nhà hàng
+có khả năng vận hành
+và phát triển dài hạn.
+
+</p>
+
+</div>
+
+
+
+<div class="project-info-card">
+
+<div class="project-info-number">
+
+02
+
+</div>
+
+<h3>
+
+BRAND
+
+</h3>
+
+<p>
+
+Xây dựng một thương hiệu
+có bản sắc,
+câu chuyện
+và định hướng riêng.
+
+</p>
+
+</div>
+
+
+
+<div class="project-info-card">
+
+<div class="project-info-number">
+
+03
+
+</div>
+
+<h3>
+
+EXPANSION
+
+</h3>
+
+<p>
+
+Phát triển từ dự án đầu tiên
+đến mô hình có khả năng
+mở rộng trong tương lai.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+TIMELINE
+======================================== -->
+
+<section>
+
+<div class="section">
+
+<div class="section-label">
+
+DEVELOPMENT TIMELINE
+
+</div>
+
+
+<h2 class="section-title">
+
+03 MONTHS<br>
+TO LAUNCH.
+
+</h2>
+
+
+<p class="section-text">
+
+Dự kiến dự án sẽ được triển khai
+qua các giai đoạn chuẩn bị,
+xây dựng và hoàn thiện
+trong khoảng 03 tháng.
+
+</p>
+
+
+<div class="timeline-grid">
+
+
+<div class="timeline-item">
+
+<div class="timeline-month">
+
+MONTH / 01
+
+</div>
+
+<h3>
+
+PREPARE
+
+</h3>
+
+<p>
+
+Hoàn thiện định hướng dự án,
+nghiên cứu mô hình,
+chuẩn bị mặt bằng,
+thiết kế và kế hoạch triển khai.
+
+</p>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-month">
+
+MONTH / 02
+
+</div>
+
+<h3>
+
+BUILD
+
+</h3>
+
+<p>
+
+Thi công,
+chuẩn bị thương hiệu,
+xây dựng hệ thống vận hành
+và kế hoạch nhân sự.
+
+</p>
+
+</div>
+
+
+
+<div class="timeline-item">
+
+<div class="timeline-month">
+
+MONTH / 03
+
+</div>
+
+<h3>
+
+LAUNCH
+
+</h3>
+
+<p>
+
+Hoàn thiện dự án,
+vận hành thử
+và chuẩn bị
+cho giai đoạn khai trương.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+INVESTMENT
+======================================== -->
+
+<section id="investment" class="investment">
+
+<div class="section">
+
+<div class="section-label">
+
+INVESTMENT OPPORTUNITY
+
+</div>
+
+
+<h2 class="section-title">
+
+BUILDING<br>
+TOGETHER.
+
+</h2>
+
+
+<p class="investment-description">
+
+Dự án đang xây dựng phương án hợp tác
+và tìm kiếm những đối tác phù hợp
+để đồng hành trong giai đoạn phát triển.
+
+</p>
+
+
+<div class="investment-grid">
+
+
+<div class="investment-card">
+
+<small>
+
+TARGET CAPITAL
+
+</small>
+
+<h3>
+
+2 TỶ
+
+</h3>
+
+<p>
+
+Nguồn vốn mục tiêu tham khảo
+cho giai đoạn triển khai
+dự án đầu tiên.
+
+</p>
+
+</div>
+
+
+
+<div class="investment-card">
+
+<small>
+
+INVESTMENT UNITS
+
+</small>
+
+<h3>
+
+20
+
+</h3>
+
+<p>
+
+Dự kiến tối đa
+20 suất hợp tác
+để tìm kiếm đối tác
+phù hợp.
+
+</p>
+
+</div>
+
+
+
+<div class="investment-card">
+
+<small>
+
+REFERENCE VALUE
+
+</small>
+
+<h3>
+
+100 TRIỆU
+
+</h3>
+
+<p>
+
+Giá trị tham khảo
+cho mỗi suất hợp tác
+nếu nguồn vốn được chia đều.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<p class="investment-note">
+
+Thông tin về cấu trúc vốn, tỷ lệ quyền lợi,
+cơ chế phân chia lợi nhuận và điều kiện hợp tác
+sẽ được xác định cụ thể trong hồ sơ dự án
+và các thỏa thuận pháp lý phù hợp giữa các bên.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+20 INVESTMENT UNITS
+======================================== -->
+
+<section class="units-section">
+
+<div class="section">
+
+
+<div class="units-header">
+
+<div>
+
+<div class="section-label">
+
+PARTNERSHIP UNITS
+
+</div>
+
+
+<h2 class="section-title">
+
+20<br>
+OPPORTUNITIES.
+
+</h2>
+
+</div>
+
+
+<p class="units-subtext">
+
+20 vị trí hiển thị mang tính tham khảo
+để quản lý sự quan tâm của các đối tác.
+Trạng thái thực tế sẽ được cập nhật
+theo tiến độ làm việc và thỏa thuận.
+
+</p>
+
+</div>
+
+
+<div class="units-grid">
+
+
+<div class="unit"><div class="unit-number">UNIT / 01</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 02</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 03</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 04</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 05</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 06</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 07</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 08</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 09</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 10</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 11</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 12</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 13</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 14</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 15</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 16</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 17</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 18</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 19</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+<div class="unit"><div class="unit-number">UNIT / 20</div><div class="unit-status"><span class="status-dot"></span> AVAILABLE</div></div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+PARTNERSHIP
+======================================== -->
+
+<section>
+
+<div class="section">
+
+<div class="section-label">
+
+PARTNERSHIP
+
+</div>
+
+
+<h2 class="section-title">
+
+BECOME PART<br>
+OF THE BEGINNING.
+
+</h2>
+
+
+<div class="partnership-box">
+
+<h3>
+
+CƠ HỘI ĐỒNG HÀNH<br>
+CÙNG DỰ ÁN.
+
+</h3>
+
+
+<p>
+
+FENRIX DEVELOPMENT tìm kiếm những cá nhân
+và đối tác quan tâm đến việc đồng hành
+cùng dự án trong giai đoạn phát triển đầu tiên.
+
+Các hình thức hợp tác,
+quyền lợi và nghĩa vụ cụ thể
+sẽ được trao đổi và xác lập
+dựa trên cấu trúc pháp lý
+và phương án phát triển của dự án.
+
+</p>
+
+
+<a href="#register" class="btn">
+
+ĐĂNG KÝ QUAN TÂM ↘
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+REGISTRATION FORM
+======================================== -->
+
+<section id="register" class="form-section">
+
+<div class="section">
+
+<div class="form-wrap">
+
+<div class="section-label">
+
+INTEREST REGISTRATION
+
+</div>
+
+
+<h2 class="section-title">
+
+LET'S<br>
+TALK.
+
+</h2>
+
+
+<p class="section-text">
+
+Để lại thông tin nếu bạn quan tâm
+đến việc tìm hiểu cơ hội hợp tác
+và đồng hành cùng
+FENRIX PROJECT / 001.
+
+</p>
+
+
+<form id="investmentForm">
+
+
+<input
+type="text"
+placeholder="HỌ VÀ TÊN"
+required
+>
+
+
+<input
+type="tel"
+placeholder="SỐ ĐIỆN THOẠI"
+required
+>
+
+
+<input
+type="email"
+placeholder="EMAIL"
+required
+>
+
+
+<select required>
+
+<option value="">
+
+MỨC QUAN TÂM ĐẦU TƯ
+
+</option>
+
+<option>
+
+DƯỚI 100 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+100 – 300 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+300 – 500 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+TRÊN 500 TRIỆU VNĐ
+
+</option>
+
+</select>
+
+
+<select required>
+
+<option value="">
+
+HÌNH THỨC QUAN TÂM
+
+</option>
+
+<option>
+
+HỢP TÁC ĐẦU TƯ
+
+</option>
+
+<option>
+
+GÓP VỐN
+
+</option>
+
+<option>
+
+ĐỐI TÁC KINH DOANH
+
+</option>
+
+<option>
+
+TÌM HIỂU THÊM
+
+</option>
+
+</select>
+
+
+<textarea
+placeholder="LỜI NHẮN / THÔNG TIN BẠN MUỐN TRAO ĐỔI"
+></textarea>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+GỬI ĐĂNG KÝ
+
+</button>
+
+
+</form>
+
+
+<p class="disclaimer">
+
+Việc gửi thông tin đăng ký chỉ thể hiện sự quan tâm
+đến cơ hội hợp tác và không đồng nghĩa với việc
+xác lập quan hệ đầu tư hoặc góp vốn.
+
+Thông tin trên website không phải là lời chào bán chứng khoán,
+không phải cam kết lợi nhuận và không bảo đảm hiệu quả đầu tư.
+
+Các điều khoản về vốn,
+quyền lợi,
+nghĩa vụ,
+cơ chế phân chia lợi nhuận
+và hình thức hợp tác chỉ được xác lập
+thông qua hồ sơ,
+thỏa thuận
+và hợp đồng phù hợp giữa các bên.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+FOUNDER
+======================================== -->
+
+<section class="founder">
+
+<div class="section">
+
+<div class="founder-grid">
+
+
+<div>
+
+<div class="section-label">
+
+FOUNDER
+
+</div>
+
+
+<div class="founder-role">
+
+FOUNDER / FENRIX DEVELOPMENT
+
+</div>
+
+
+<h2 class="founder-name">
+
+ĐOÀN<br>
+NGỌC ÁNH
+
+</h2>
+
+
+<p class="founder-text">
+
+FENRIX DEVELOPMENT được định hướng
+từ mong muốn xây dựng những ý tưởng
+thành các thương hiệu,
+mô hình kinh doanh
+và hệ sinh thái có giá trị lâu dài.
+
+Dự án HƯƠNG XƯA là bước khởi đầu
+cho hành trình phát triển đó.
+
+</p>
+
+</div>
+
+
+<div class="founder-symbol">
+
+F
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+CONTACT
+======================================== -->
+
+<section id="contact" class="contact">
+
+<div class="section">
+
+<div class="section-label">
+
+CONTACT / COLLABORATION
+
+</div>
+
+
+<h2 class="contact-title">
+
+LET'S<br>
+BUILD.
+
+</h2>
+
+
+<div class="contact-links">
+
+<a
+href="mailto:dnabookingvn@gmail.com"
+class="contact-link">
+
+EMAIL
+
+</a>
+
+
+<a
+href="tel:0973344387"
+class="contact-link">
+
+0973344387
+
+</a>
+
+
+<a
+href="#home"
+class="contact-link">
+
+BACK TO TOP ↑
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================================
+FOOTER
+======================================== -->
+
 <footer>
 
-  <div class="footer-inner">
+<p>
 
-    <span>© 2026 FENRIX DEVELOPMENT</span>
+FENRIX DEVELOPMENT
 
-    <span>BUILDING IDEAS. DEVELOPING FUTURES.</span>
+</p>
 
-    <span>VIETNAM / GLOBAL DIRECTION</span>
 
-  </div>
+<p>
+
+BUILDING IDEAS. DEVELOPING FUTURES.
+
+</p>
+
+
+<p>
+
+EST. 2026 · VIETNAM
+
+</p>
 
 </footer>
 
-<script>
-/* Simple reveal effect */
 
-const revealItems = document.querySelectorAll(
-  '.section-title, .eco-row, .strategy-card, .founder-grid, .project-info, .contact-grid'
+
+<!-- ========================================
+FORM MESSAGE
+======================================== -->
+
+<script>
+
+document
+.getElementById("investmentForm")
+.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+alert(
+"Cảm ơn bạn đã đăng ký quan tâm. FENRIX DEVELOPMENT sẽ liên hệ lại trong thời gian sớm nhất."
 );
 
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target);
-    }
-  });
-},{
-  threshold:.08
-});
+this.reset();
 
-revealItems.forEach(el=>{
-  el.style.opacity='0';
-  el.style.transform='translateY(24px)';
-  el.style.transition='opacity .8s ease, transform .8s ease';
-  observer.observe(el);
-});
+}
+);
+
 </script>
 
+
 </body>
+
 </html>
