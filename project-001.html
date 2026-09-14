@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+HƯƠNG XƯA | FENRIX PROJECT 001
+</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#090909;
+
+color:#f1eee8;
+
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+
+line-height:1.6;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+nav{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:75px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 7%;
+
+background:
+rgba(9,9,9,.85);
+
+backdrop-filter:
+blur(15px);
+
+border-bottom:
+1px solid #222;
+
+z-index:1000;
+
+}
+
+.logo{
+
+font-size:15px;
+
+font-weight:bold;
+
+letter-spacing:3px;
+
+color:#f1eee8;
+
+text-decoration:none;
+
+}
+
+.back{
+
+font-size:11px;
+
+letter-spacing:2px;
+
+color:#aaa;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.back:hover{
+
+color:#d06b42;
+
+}
+
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+padding:
+140px 8%
+80px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+background:
+radial-gradient(
+circle,
+rgba(208,107,66,.25),
+transparent 70%
+);
+
+right:-200px;
+
+top:-200px;
+
+}
+
+.hero-content{
+
+max-width:850px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.label{
+
+font-size:10px;
+
+letter-spacing:4px;
+
+color:#d06b42;
+
+margin-bottom:25px;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(
+55px,
+10vw,
+150px
+);
+
+font-weight:500;
+
+letter-spacing:-4px;
+
+line-height:.9;
+
+margin-bottom:35px;
+
+}
+
+.hero p{
+
+max-width:600px;
+
+font-size:18px;
+
+color:#aaa;
+
+margin-bottom:40px;
+
+}
+
+.hero-buttons{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:
+17px
+28px;
+
+border:
+1px solid #d06b42;
+
+color:#f1eee8;
+
+text-decoration:none;
+
+font-size:10px;
+
+letter-spacing:2px;
+
+transition:.3s;
+
+cursor:pointer;
+
+background:none;
+
+}
+
+.btn:hover{
+
+background:#d06b42;
+
+color:#000;
+
+}
+
+
+/* =========================
+SECTION
+========================= */
+
+section{
+
+padding:
+130px 8%;
+
+border-top:
+1px solid #1b1b1b;
+
+}
+
+.section-label{
+
+font-size:10px;
+
+letter-spacing:4px;
+
+color:#d06b42;
+
+margin-bottom:30px;
+
+}
+
+h2{
+
+font-size:
+clamp(
+38px,
+6vw,
+80px
+);
+
+font-weight:500;
+
+letter-spacing:-2px;
+
+line-height:1;
+
+margin-bottom:35px;
+
+}
+
+.text{
+
+max-width:750px;
+
+font-size:17px;
+
+color:#aaa;
+
+}
+
+
+/* =========================
+PROJECT INFO
+========================= */
+
+.project-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+3,
+1fr
+);
+
+gap:1px;
+
+background:#222;
+
+margin-top:70px;
+
+}
+
+.project-card{
+
+background:#0d0d0d;
+
+padding:45px;
+
+min-height:220px;
+
+}
+
+.project-number{
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:#d06b42;
+
+margin-bottom:20px;
+
+}
+
+.project-card h3{
+
+font-size:24px;
+
+font-weight:400;
+
+margin-bottom:15px;
+
+}
+
+.project-card p{
+
+color:#888;
+
+font-size:14px;
+
+}
+
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+
+margin-top:70px;
+
+display:grid;
+
+grid-template-columns:
+repeat(
+3,
+1fr
+);
+
+gap:40px;
+
+}
+
+.timeline-item{
+
+border-top:
+1px solid #d06b42;
+
+padding-top:25px;
+
+}
+
+.timeline-number{
+
+font-size:12px;
+
+letter-spacing:3px;
+
+color:#d06b42;
+
+margin-bottom:15px;
+
+}
+
+.timeline h3{
+
+font-size:22px;
+
+font-weight:400;
+
+margin-bottom:15px;
+
+}
+
+.timeline p{
+
+font-size:14px;
+
+color:#888;
+
+}
+
+
+/* =========================
+INVESTMENT
+========================= */
+
+.investment{
+
+background:#d06b42;
+
+color:#090909;
+
+}
+
+.investment
+.section-label{
+
+color:#3d1d12;
+
+}
+
+.investment h2{
+
+max-width:900px;
+
+}
+
+.investment-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+3,
+1fr
+);
+
+gap:1px;
+
+background:
+rgba(0,0,0,.2);
+
+margin-top:70px;
+
+}
+
+.investment-card{
+
+padding:45px;
+
+background:
+rgba(0,0,0,.06);
+
+}
+
+.investment-card small{
+
+font-size:10px;
+
+letter-spacing:3px;
+
+display:block;
+
+margin-bottom:20px;
+
+}
+
+.investment-card h3{
+
+font-size:40px;
+
+font-weight:500;
+
+margin-bottom:10px;
+
+}
+
+.investment-card p{
+
+font-size:14px;
+
+opacity:.75;
+
+}
+
+
+/* =========================
+OPPORTUNITY
+========================= */
+
+.opportunity{
+
+padding:
+130px 8%;
+
+}
+
+.opportunity-box{
+
+margin-top:60px;
+
+border:
+1px solid #292929;
+
+padding:60px;
+
+}
+
+.opportunity-box h3{
+
+font-size:32px;
+
+font-weight:400;
+
+margin-bottom:25px;
+
+}
+
+.opportunity-box p{
+
+color:#888;
+
+max-width:750px;
+
+margin-bottom:35px;
+
+}
+
+
+/* =========================
+FORM
+========================= */
+
+.form-section{
+
+background:#0d0d0d;
+
+}
+
+form{
+
+max-width:750px;
+
+margin-top:50px;
+
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+
+background:#090909;
+
+border:
+1px solid #252525;
+
+padding:18px;
+
+margin-bottom:15px;
+
+color:#fff;
+
+font-size:14px;
+
+outline:none;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+border-color:#d06b42;
+
+}
+
+textarea{
+
+min-height:150px;
+
+resize:vertical;
+
+}
+
+button{
+
+padding:
+18px
+30px;
+
+background:#d06b42;
+
+border:none;
+
+color:#000;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+cursor:pointer;
+
+}
+
+
+/* =========================
+DISCLAIMER
+========================= */
+
+.disclaimer{
+
+font-size:12px;
+
+color:#666;
+
+margin-top:30px;
+
+max-width:700px;
+
+line-height:1.7;
+
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+
+padding:
+60px 8%;
+
+border-top:
+1px solid #222;
+
+display:flex;
+
+justify-content:space-between;
+
+flex-wrap:wrap;
+
+gap:30px;
+
+}
+
+footer p{
+
+font-size:11px;
+
+letter-spacing:2px;
+
+color:#666;
+
+}
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:800px){
+
+nav{
+
+padding:
+0 25px;
+
+}
+
+.hero{
+
+padding:
+130px 25px
+70px;
+
+}
+
+section{
+
+padding:
+90px 25px;
+
+}
+
+.project-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+.timeline{
+
+grid-template-columns:
+1fr;
+
+}
+
+.investment-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+.opportunity{
+
+padding:
+90px 25px;
+
+}
+
+.opportunity-box{
+
+padding:35px 25px;
+
+}
+
+.hero h1{
+
+letter-spacing:-2px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+NAVIGATION
+========================= -->
+
+<nav>
+
+<a
+href="index.html"
+class="logo">
+
+FENRIX DEVELOPMENT
+
+</a>
+
+
+<a
+href="index.html"
+class="back">
+
+← BACK TO FENRIX
+
+</a>
+
+</nav>
+
+
+
+<!-- =========================
+HERO
+========================= -->
+
+<section
+class="hero">
+
+<div
+class="hero-content">
+
+<div
+class="label">
+
+FENRIX PROJECT / 001
+
+</div>
+
+
+<h1>
+
+HƯƠNG<br>
+XƯA.
+
+</h1>
+
+
+<p>
+
+Một dự án hospitality
+thuộc FENRIX DEVELOPMENT.
+
+Hướng tới việc xây dựng
+một thương hiệu bún mọc
+mang tinh thần Hà Nội,
+kết hợp giữa giá trị truyền thống
+và mô hình phát triển hiện đại.
+
+</p>
+
+
+<div
+class="hero-buttons">
+
+<a
+href="#investment"
+class="btn">
+
+KHÁM PHÁ CƠ HỘI HỢP TÁC
+
+</a>
+
+
+<a
+href="#register"
+class="btn">
+
+ĐĂNG KÝ QUAN TÂM
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+ABOUT
+========================= -->
+
+<section>
+
+<div
+class="section-label">
+
+THE PROJECT
+
+</div>
+
+
+<h2>
+
+THE FIRST
+BEGINNING.
+
+</h2>
+
+
+<p
+class="text">
+
+HƯƠNG XƯA là dự án
+hospitality đầu tiên
+trong hệ sinh thái
+FENRIX DEVELOPMENT.
+
+Dự án tập trung vào việc
+xây dựng một mô hình
+ẩm thực có khả năng
+phát triển lâu dài,
+từ một cửa hàng đầu tiên
+đến một hệ thống
+thương hiệu trong tương lai.
+
+</p>
+
+
+<div
+class="project-grid">
+
+
+<div
+class="project-card">
+
+<div
+class="project-number">
+
+01
+
+</div>
+
+<h3>
+
+HOSPITALITY
+
+</h3>
+
+<p>
+
+Phát triển mô hình
+ẩm thực và nhà hàng.
+
+</p>
+
+</div>
+
+
+
+<div
+class="project-card">
+
+<div
+class="project-number">
+
+02
+
+</div>
+
+<h3>
+
+BRAND
+
+</h3>
+
+<p>
+
+Xây dựng thương hiệu
+có bản sắc và khả năng
+mở rộng.
+
+</p>
+
+</div>
+
+
+
+<div
+class="project-card">
+
+<div
+class="project-number">
+
+03
+
+</div>
+
+<h3>
+
+EXPANSION
+
+</h3>
+
+<p>
+
+Phát triển mô hình
+theo hướng dài hạn
+và có hệ thống.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+TIMELINE
+========================= -->
+
+<section>
+
+<div
+class="section-label">
+
+DEVELOPMENT TIMELINE
+
+</div>
+
+
+<h2>
+
+03 MONTHS
+TO LAUNCH.
+
+</h2>
+
+
+<div
+class="timeline">
+
+
+<div
+class="timeline-item">
+
+<div
+class="timeline-number">
+
+MONTH / 01
+
+</div>
+
+<h3>
+
+PREPARE
+
+</h3>
+
+<p>
+
+Hoàn thiện định hướng,
+chuẩn bị mô hình,
+mặt bằng,
+thiết kế và kế hoạch
+triển khai.
+
+</p>
+
+</div>
+
+
+
+<div
+class="timeline-item">
+
+<div
+class="timeline-number">
+
+MONTH / 02
+
+</div>
+
+<h3>
+
+BUILD
+
+</h3>
+
+<p>
+
+Thi công,
+xây dựng vận hành,
+chuẩn bị nhân sự
+và hệ thống thương hiệu.
+
+</p>
+
+</div>
+
+
+
+<div
+class="timeline-item">
+
+<div
+class="timeline-number">
+
+MONTH / 03
+
+</div>
+
+<h3>
+
+LAUNCH
+
+</h3>
+
+<p>
+
+Hoàn thiện dự án,
+vận hành thử
+và chuẩn bị
+khai trương.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+INVESTMENT
+========================= -->
+
+<section
+id="investment"
+class="investment">
+
+
+<div
+class="section-label">
+
+INVESTMENT OPPORTUNITY
+
+</div>
+
+
+<h2>
+
+BUILDING
+TOGETHER.
+
+</h2>
+
+
+<p
+style="
+max-width:700px;
+font-size:17px;
+opacity:.75;
+">
+
+Dự án đang xây dựng
+phương án hợp tác đầu tư
+và tìm kiếm những đối tác
+phù hợp để đồng hành
+trong quá trình phát triển.
+
+</p>
+
+
+<div
+class="investment-grid">
+
+
+<div
+class="investment-card">
+
+<small>
+
+TARGET CAPITAL
+
+</small>
+
+<h3>
+
+2 TỶ
+
+</h3>
+
+<p>
+
+Nguồn vốn mục tiêu
+cho giai đoạn
+triển khai dự án.
+
+</p>
+
+</div>
+
+
+
+<div
+class="investment-card">
+
+<small>
+
+INVESTMENT UNITS
+
+</small>
+
+<h3>
+
+20
+
+</h3>
+
+<p>
+
+Dự kiến tối đa
+20 suất hợp tác
+đầu tư.
+
+</p>
+
+</div>
+
+
+
+<div
+class="investment-card">
+
+<small>
+
+REFERENCE VALUE
+
+</small>
+
+<h3>
+
+100 TRIỆU
+
+</h3>
+
+<p>
+
+Giá trị tham khảo
+cho mỗi suất
+hợp tác đầu tư.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<p
+style="
+margin-top:35px;
+max-width:800px;
+font-size:13px;
+opacity:.7;
+">
+
+Thông tin về tỷ lệ quyền lợi,
+cơ chế phân chia lợi nhuận,
+cấu trúc vốn và điều kiện
+tham gia sẽ được xác định
+trong hồ sơ dự án
+và thỏa thuận pháp lý
+với từng đối tác.
+
+</p>
+
+
+</section>
+
+
+
+<!-- =========================
+OPPORTUNITY
+========================= -->
+
+<section
+class="opportunity">
+
+
+<div
+class="section-label">
+
+PARTNERSHIP
+
+</div>
+
+
+<h2>
+
+BECOME PART
+OF THE BEGINNING.
+
+</h2>
+
+
+<div
+class="opportunity-box">
+
+
+<h3>
+
+CƠ HỘI ĐỒNG HÀNH
+CÙNG DỰ ÁN
+
+</h3>
+
+
+<p>
+
+FENRIX DEVELOPMENT
+tìm kiếm những cá nhân
+và đối tác có mong muốn
+đồng hành cùng dự án
+trong giai đoạn đầu.
+
+Việc hợp tác có thể được
+thực hiện thông qua
+các hình thức phù hợp
+với cấu trúc pháp lý
+và phương án phát triển
+của dự án.
+
+</p>
+
+
+<a
+href="#register"
+class="btn">
+
+ĐĂNG KÝ QUAN TÂM ↗
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+FORM
+========================= -->
+
+<section
+id="register"
+class="form-section">
+
+
+<div
+class="section-label">
+
+INTEREST REGISTRATION
+
+</div>
+
+
+<h2>
+
+LET'S
+TALK.
+
+</h2>
+
+
+<p
+class="text">
+
+Để lại thông tin
+nếu bạn quan tâm
+đến việc tìm hiểu
+cơ hội hợp tác
+và đồng hành
+cùng FENRIX PROJECT 001.
+
+</p>
+
+
+
+<form
+action="#"
+method="post">
+
+
+<input
+type="text"
+placeholder="HỌ VÀ TÊN"
+required>
+
+
+<input
+type="tel"
+placeholder="SỐ ĐIỆN THOẠI"
+required>
+
+
+<input
+type="email"
+placeholder="EMAIL"
+required>
+
+
+<select>
+
+<option>
+
+MỨC QUAN TÂM ĐẦU TƯ
+
+</option>
+
+<option>
+
+DƯỚI 100 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+100 – 300 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+300 – 500 TRIỆU VNĐ
+
+</option>
+
+<option>
+
+TRÊN 500 TRIỆU VNĐ
+
+</option>
+
+</select>
+
+
+<select>
+
+<option>
+
+HÌNH THỨC QUAN TÂM
+
+</option>
+
+<option>
+
+HỢP TÁC ĐẦU TƯ
+
+</option>
+
+<option>
+
+GÓP VỐN
+
+</option>
+
+<option>
+
+ĐỐI TÁC KINH DOANH
+
+</option>
+
+<option>
+
+TÌM HIỂU THÊM
+
+</option>
+
+</select>
+
+
+<textarea
+placeholder="
+LỜI NHẮN / THÔNG TIN BẠN MUỐN TRAO ĐỔI
+">
+
+</textarea>
+
+
+<button
+type="submit">
+
+GỬI ĐĂNG KÝ
+
+</button>
+
+
+</form>
+
+
+<p
+class="disclaimer">
+
+Việc gửi thông tin đăng ký
+chỉ thể hiện sự quan tâm
+đến cơ hội hợp tác.
+
+Thông tin trên website
+không phải là lời chào bán
+chứng khoán,
+cam kết lợi nhuận
+hoặc bảo đảm hiệu quả đầu tư.
+
+Các điều khoản hợp tác,
+góp vốn,
+quyền lợi và nghĩa vụ
+chỉ được xác lập
+thông qua hồ sơ,
+thỏa thuận
+và hợp đồng hợp pháp
+giữa các bên.
+
+</p>
+
+
+</section>
+
+
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer>
+
+
+<p>
+
+FENRIX DEVELOPMENT
+
+</p>
+
+
+<p>
+
+PROJECT 001
+
+</p>
+
+
+<p>
+
+EST. 2026 · VIETNAM
+
+</p>
+
+
+</footer>
+
+
+</body>
+
+</html>
